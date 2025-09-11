@@ -69,13 +69,13 @@ export default function PortfolioPage() {
                   )}
                 </div>
                 <CardHeader>
-                  <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
+                  <CardTitle className="font-headline text-2xl font-bold">{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col">
                   <p className="text-foreground/80 mb-4 flex-grow">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary">{tech}</Badge>
+                    {project.technologies.map((tech, index) => (
+                      <Badge key={`${project.id}-${tech}-${index}`} variant="secondary">{tech}</Badge>
                     ))}
                   </div>
                   {project.liveUrl && (
