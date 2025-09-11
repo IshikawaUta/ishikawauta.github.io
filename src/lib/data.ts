@@ -24,7 +24,7 @@ export const projectsData: Project[] = [
     title: "Patungin - Splitting the cost Platform",
     description: "Modern Pooling platform that enables users to create and contribute to various funding campaigns.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
-    imageUrl: "https://picsum.photos/seed/patungin/600/400",
+    imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754583125/ldzfch8sknfb5hfaekte.jpg",
     imageHint: "funding platform"
   },
   {
