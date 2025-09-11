@@ -40,10 +40,10 @@ export default function Home() {
             Based in Tangerang, Indonesia.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button asChild size="lg" className="btn-custom">
+            <Button asChild size="lg">
                 <Link href="/contact">LET'S START</Link>
             </Button>
-            <Button asChild size="lg" className="btn-custom-inverted">
+            <Button asChild size="lg" variant="outline">
                 <Link href="/portfolio">My Portfolio</Link>
             </Button>
           </div>
