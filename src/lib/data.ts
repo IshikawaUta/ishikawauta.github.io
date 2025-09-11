@@ -61,6 +61,8 @@ export const skillsData: Skill[] = [
     { name: "HTML5", icon: Code, level: "Expert", levelValue: 5, category: "Frontend" },
     { name: "CSS3", icon: Code, level: "Expert", levelValue: 5, category: "Frontend" },
     { name: "Tailwind CSS", icon: Wind, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "Python", icon: Code, level: "Advanced", levelValue: 4, category: "Backend" },
+    { name: "Flask", icon: Server, level: "Intermediate", levelValue: 3, category: "Backend" },
     { name: "Node.js", icon: Server, level: "Intermediate", levelValue: 3, category: "Backend" },
     { name: "MongoDB", icon: Database, level: "Intermediate", levelValue: 3, category: "Backend" },
     { name: "PostgreSQL", icon: Database, level: "Intermediate", levelValue: 3, category: "Backend" },
