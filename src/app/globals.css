@@ -80,3 +80,50 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .led-border {
+    position: relative;
+  }
+
+  .led-border::before,
+  .led-border::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+  }
+
+  .led-border::before {
+    inset: -2px;
+    background: conic-gradient(from var(--angle, 0deg), hsl(var(--primary) / 0.4), hsl(var(--primary)), hsl(var(--primary) / 0.4));
+    animation: rotate-led 4s linear infinite;
+    z-index: 0;
+  }
+  
+  .led-border::after {
+    inset: 0;
+    background: hsl(var(--muted));
+    z-index: 1;
+  }
+
+  /* We need to apply z-index to the direct child of the element with the .led-border class */
+  .led-border > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-led {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
