@@ -43,7 +43,7 @@ export default function Home() {
             <Button asChild size="lg" className="btn-shine-effect">
                 <Link href="/contact">LET'S START</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="btn-shine-effect">
+            <Button asChild size="lg" variant="outline" className="btn-shine-effect btn-outline-primary">
                 <Link href="/portfolio">My Portfolio</Link>
             </Button>
           </div>
