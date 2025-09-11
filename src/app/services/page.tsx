@@ -1,56 +1,93 @@
+
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, MessageCircle } from "lucide-react";
+import { Check, Code2, MessageCircle, Paintbrush, CloudUpload } from "lucide-react";
 import Link from "next/link";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "Custom Website Development",
-    description: "From personal portfolios to corporate websites, I build bespoke sites tailored to your unique needs.",
+    icon: Code2,
+    title: "Web Development",
+    description: "Custom websites tailored to your needs using the latest technologies and best practices.",
+    features: [
+      "Responsive Design",
+      "Front-end Development",
+      "Back-end Development",
+      "API Integration",
+    ],
   },
   {
-    title: "E-Commerce Solutions",
-    description: "Powerful and scalable online stores with secure payment gateways and intuitive product management.",
+    icon: Paintbrush,
+    title: "UI/UX Design",
+    description: "Creating beautiful and user-friendly interfaces that enhance the user experience.",
+    features: [
+      "User Research",
+      "Wireframing",
+      "Prototyping",
+      "Visual Design",
+    ],
   },
   {
-    title: "Web Application Development",
-    description: "Complex, data-driven web applications with rich user interfaces and robust back-end systems.",
-  },
-  {
-    title: "Responsive Design",
-    description: "Ensuring your website looks and functions perfectly on all devices, from desktops to smartphones.",
+    icon: CloudUpload,
+    title: "Deployment & DevOps",
+    description: "Helps the process of deploying web applications to the server easily and securely.",
+    features: [
+      "Hosting Setup",
+      "Domain Configuration",
+      "SSL Installation",
+      "Basic Server Maintenance",
+    ],
   },
 ];
 
 export default function ServicesPage() {
   const whatsappLink = "https://wa.me/62895701060973?text=Hello%2C%20I'm%20interested%20in%20your%20web%20development%20services.";
 
+  const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: servicesRef, inView: servicesInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: ctaRef, inView: ctaInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+
   return (
     <div className="space-y-16">
-      <div className="text-center">
+      <div ref={heroRef} className={cn("text-center", heroInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <h1 className="text-4xl md:text-5xl font-headline text-primary mb-4">
           My Services
         </h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          I offer professional web development services to bring your ideas to life. My focus is on creating responsive, fast, and user-friendly digital experiences.
+          I offer a wide range of web development and design services to help bring your ideas to life.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {services.map((service) => (
-          <Card key={service.title} className="bg-card/80">
-            <CardHeader className="flex flex-row items-center gap-4">
-              <CheckCircle className="w-8 h-8 text-primary" />
-              <CardTitle className="font-headline text-xl">{service.title}</CardTitle>
+      <div ref={servicesRef} className={cn("grid md:grid-cols-2 lg:grid-cols-3 gap-8", servicesInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
+        {services.map((service, index) => (
+          <Card key={index} className="bg-card/80 flex flex-col p-6 rounded-xl shadow-sm hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300">
+            <CardHeader className="items-start p-0 mb-4">
+               <div className="bg-primary/10 p-3 rounded-lg mb-4">
+                <service.icon className="w-8 h-8 text-primary" />
+               </div>
+              <CardTitle className="font-headline text-2xl font-bold">{service.title}</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-foreground/80">{service.description}</p>
+            <CardContent className="flex-grow flex flex-col p-0">
+              <p className="text-foreground/80 mb-6 flex-grow">{service.description}</p>
+              <ul className="space-y-3">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-primary" />
+                    <span className="text-foreground/90">{feature}</span>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <div className="text-center bg-card p-8 rounded-lg shadow-lg">
+      <div ref={ctaRef} className={cn("text-center bg-card p-8 rounded-lg shadow-lg", ctaInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <h2 className="text-3xl font-headline text-primary mb-4">
           Have a project in mind?
         </h2>
