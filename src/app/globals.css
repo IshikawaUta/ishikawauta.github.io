@@ -80,31 +80,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-@layer components {
-  .btn-custom {
-    @apply relative bg-background text-foreground border border-foreground;
-    z-index: 1;
-  }
-
-  .btn-custom::after {
-    content: '';
-    @apply absolute bg-primary;
-    width: 100%;
-    height: 100%;
-    top: 5px;
-    left: 5px;
-    z-index: -1;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .btn-custom:hover {
-    @apply bg-primary text-primary-foreground;
-  }
-
-  .btn-custom:hover::after {
-    top: 0;
-    left: 0;
-    @apply bg-foreground;
-  }
-}
