@@ -18,7 +18,7 @@ export default function Home() {
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
             My Name Eka Saputra 👋
           </p>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
             I'm a{' '}
             <TypeAnimation
               sequence={[
