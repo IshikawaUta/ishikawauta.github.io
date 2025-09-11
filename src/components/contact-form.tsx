@@ -101,7 +101,7 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" size="lg" className="w-full">
+        <Button type="submit" size="lg" className="w-full btn-shine-effect">
           Send Message <Send className="ml-2 h-4 w-4" />
         </Button>
       </form>

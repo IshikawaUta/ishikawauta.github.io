@@ -41,7 +41,7 @@ export default function Header() {
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
-          <Button asChild>
+          <Button asChild className="btn-shine-effect">
             <Link href="/contact">LET'S START</Link>
           </Button>
         </nav>
@@ -79,7 +79,7 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                   <Button asChild className="mt-4">
+                   <Button asChild className="mt-4 btn-shine-effect">
                     <Link href="/contact">LET'S START</Link>
                   </Button>
                 </nav>
