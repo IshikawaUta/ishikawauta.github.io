@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Power } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 import { Icons } from '@/components/icons';
 import { TypeAnimation } from 'react-type-animation';
@@ -40,15 +40,12 @@ export default function Home() {
             Based in Tangerang, Indonesia.
           </p>
           <div className="flex gap-4 justify-center">
-             <Link href="/contact" className="btn-switch">
-                <input type="checkbox" id="switch" className="sr-only" defaultChecked/>
-                <div className="btn-switch-bg"></div>
-                <span className="btn-switch-label btn-switch-label-off">OFF</span>
-                <span className="btn-switch-label btn-switch-label-on">ON</span>
-                <div className="btn-switch-knob">
-                  <Power />
-                </div>
-              </Link>
+            <Button asChild size="lg">
+                <Link href="/contact">LET'S START</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+                <Link href="/portfolio">My Portfolio</Link>
+            </Button>
           </div>
         </div>
       </section>

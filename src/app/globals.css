@@ -81,29 +81,3 @@
   }
 }
 
-@layer components {
-  .btn-switch {
-    @apply relative inline-flex h-12 w-48 cursor-pointer items-center justify-center rounded-full bg-card p-1 shadow-inner;
-  }
-  .btn-switch-bg {
-    @apply absolute h-10 w-full rounded-full bg-muted;
-  }
-  .btn-switch-knob {
-    @apply absolute left-1 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md transition-transform duration-300;
-  }
-  .btn-switch input:checked + .btn-switch-bg {
-    @apply bg-primary/20;
-  }
-  .btn-switch input:checked ~ .btn-switch-knob {
-    @apply translate-x-[140px] animate-power-on;
-  }
-  .btn-switch-label {
-    @apply absolute z-10 text-sm font-bold;
-  }
-  .btn-switch-label-on {
-    @apply right-8 text-primary;
-  }
-  .btn-switch-label-off {
-    @apply left-8 text-foreground/50;
-  }
-}
