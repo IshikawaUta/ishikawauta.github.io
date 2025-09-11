@@ -1,21 +1,23 @@
 
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code2, MapPin } from 'lucide-react';
+import { ArrowRight, Briefcase, Code2, MapPin, Award, Users, FolderKanban } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
-import { Icons } from '@/components/icons';
 import { TypeAnimation } from 'react-type-animation';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Home() {
   const featuredProjects = projectsData.slice(0, 3);
+  const aboutImage = PlaceHolderImages.find(img => img.id === 'about-me');
+
   const stats = [
-    { value: "4+", label: "Years Exp." },
-    { value: "20+", label: "Projects" },
-    { value: "15+", label: "Clients" },
-    { value: "5+", label: "Tech Stack" },
+    { value: "4+", label: "Years of Experience", icon: Award },
+    { value: "15+", label: "Happy Clients", icon: Users },
+    { value: "20+", label: "Projects Completed", icon: FolderKanban },
   ];
 
   return (
@@ -57,33 +59,41 @@ export default function Home() {
       </section>
 
       <section id="about" className="animate__animated animate__fadeInUp">
-        <div className="bg-card p-8 rounded-lg shadow-md">
-            <h2 className="text-3xl font-headline text-foreground mb-4">Web Developer & AI Enthusiast</h2>
+        <div className="grid md:grid-cols-5 gap-12 items-center">
+          <div className="md:col-span-2">
+             {aboutImage && (
+              <div className="relative w-full aspect-square rounded-lg shadow-lg overflow-hidden group">
+                <Image
+                  src={aboutImage.imageUrl}
+                  alt={aboutImage.description}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  data-ai-hint={aboutImage.imageHint}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              </div>
+            )}
+          </div>
+          <div className="md:col-span-3">
+            <h2 className="text-3xl font-headline text-primary mb-4">About Me</h2>
             <p className="text-foreground/80 mb-6 leading-relaxed">
-              A passionate web developer focused on creating elegant and efficient digital solutions. I specialize in <span className="text-primary font-semibold">full-stack development</span> with expertise in modern web technologies and frameworks.
+              A passionate web developer focused on creating elegant and efficient digital solutions. I specialize in <span className="font-semibold text-primary">full-stack development</span> with expertise in modern web technologies and frameworks, always aiming to build intuitive and high-performance applications.
             </p>
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span className="text-foreground/90">Based in Kudus, Indonesia</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Code2 className="w-5 h-5 text-primary" />
-                <span className="text-foreground/90">Full Stack Web Developer</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Briefcase className="w-5 h-5 text-primary" />
-                <span className="text-foreground/90">Freelancer & Content Creator Technology</span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {stats.map(stat => (
-                <div key={stat.label} className="bg-muted p-4 rounded-lg">
-                  <p className="text-3xl font-bold text-primary">{stat.value}</p>
+                <div key={stat.label} className="bg-card p-4 rounded-lg text-center transform transition-transform hover:-translate-y-1">
+                  <stat.icon className="w-8 h-8 text-primary mx-auto mb-2"/>
+                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
                   <p className="text-sm text-foreground/80">{stat.label}</p>
                 </div>
               ))}
             </div>
+             <Button asChild size="lg" variant="link" className="p-0 text-primary">
+                  <Link href="/contact">
+                    Let's work together <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+          </div>
         </div>
       </section>
 
@@ -131,3 +141,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

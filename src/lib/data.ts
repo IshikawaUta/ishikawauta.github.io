@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import { Award, Users, FolderKanban } from 'lucide-react';
 
 export type Project = {
   id: number;
@@ -81,3 +82,5 @@ export const navLinks = [
     { href: "/portfolio", label: "Portfolio" },
     { href: "/contact", label: "Contact" },
 ];
+
+    
