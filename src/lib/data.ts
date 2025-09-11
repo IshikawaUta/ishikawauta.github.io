@@ -45,7 +45,7 @@ export const projectsData: Project[] = [
     technologies: ["Gatsby", "GraphQL", "Stripe"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582540/h9emir3cpruwoyghlehi.jpg",
     imageHint: "online shopping",
-    liveUrl: "https://ekspost.com/"
+    liveUrl: "https://ekspost.vercel.app/index"
   },
   {
     id: 4,
