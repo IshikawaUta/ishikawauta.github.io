@@ -4,13 +4,19 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Briefcase, Code2, MapPin } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 import { Icons } from '@/components/icons';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Home() {
   const featuredProjects = projectsData.slice(0, 3);
+  const stats = [
+    { value: "4+", label: "Years Exp." },
+    { value: "20+", label: "Projects" },
+    { value: "15+", label: "Clients" },
+    { value: "5+", label: "Tech Stack" },
+  ];
 
   return (
     <div className="space-y-24">
@@ -50,28 +56,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="grid md:grid-cols-2 gap-12 items-center animate__animated animate__fadeInUp">
-        <div>
-          <h2 className="text-3xl font-headline text-primary mb-4">About Me</h2>
-          <p className="text-foreground/80 mb-4 leading-relaxed">
-            Hello! I'm Eka, a full-stack developer with a passion for building beautiful and functional web applications. With a strong foundation in both front-end and back-end technologies, I specialize in bringing ideas to life from concept to deployment.
-          </p>
-          <p className="text-foreground/80 leading-relaxed">
-            I thrive on solving complex problems and am constantly learning to keep up with the fast-paced world of web development. My goal is to create seamless, intuitive, and engaging user experiences.
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-4 justify-center items-center">
-          {skillsData.slice(0, 5).map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-              <div key={skill.name} className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 bg-card rounded-full flex items-center justify-center shadow-md hover:bg-primary/10 transition-colors">
-                  <Icon className="w-8 h-8 text-primary" />
-                </div>
-                <span className="text-sm font-medium">{skill.name}</span>
+      <section id="about" className="animate__animated animate__fadeInUp">
+        <div className="bg-card p-8 rounded-lg shadow-md">
+            <h2 className="text-3xl font-headline text-foreground mb-4">Web Developer & AI Enthusiast</h2>
+            <p className="text-foreground/80 mb-6 leading-relaxed">
+              A passionate web developer focused on creating elegant and efficient digital solutions. I specialize in <span className="text-primary font-semibold">full-stack development</span> with expertise in modern web technologies and frameworks.
+            </p>
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-primary" />
+                <span className="text-foreground/90">Based in Kudus, Indonesia</span>
               </div>
-            );
-          })}
+              <div className="flex items-center gap-3">
+                <Code2 className="w-5 h-5 text-primary" />
+                <span className="text-foreground/90">Full Stack Web Developer</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Briefcase className="w-5 h-5 text-primary" />
+                <span className="text-foreground/90">Freelancer & Content Creator Technology</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              {stats.map(stat => (
+                <div key={stat.label} className="bg-muted p-4 rounded-lg">
+                  <p className="text-3xl font-bold text-primary">{stat.value}</p>
+                  <p className="text-sm text-foreground/80">{stat.label}</p>
+                </div>
+              ))}
+            </div>
         </div>
       </section>
 
