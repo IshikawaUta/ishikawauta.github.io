@@ -129,3 +129,31 @@
     border-color: hsl(var(--primary));
   }
 }
+
+@layer utilities {
+  .star-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .star-cursor .star {
+    position: absolute;
+    border-radius: 50%;
+    animation: star-fall 1s forwards;
+    color: hsl(var(--primary));
+  }
+
+  @keyframes star-fall {
+    from {
+      opacity: 1;
+      transform: scale(0.7) rotate(0deg);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0) rotate(180deg);
+    }
+  }
+}
