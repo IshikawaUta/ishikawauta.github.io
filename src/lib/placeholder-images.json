@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "about-me",
+      "description": "A portrait of a developer",
+      "imageUrl": "https://picsum.photos/seed/aboutme/500/500",
+      "imageHint": "developer portrait"
+    },
+    {
+      "id": "project-1",
+      "description": "Screenshot of an e-commerce website",
+      "imageUrl": "https://picsum.photos/seed/project1/600/400",
+      "imageHint": "online store"
+    },
+    {
+      "id": "project-2",
+      "description": "Screenshot of a project management dashboard",
+      "imageUrl": "https://picsum.photos/seed/project2/600/400",
+      "imageHint": "dashboard analytics"
+    },
+    {
+      "id": "project-3",
+      "description": "Screenshot of a blog homepage",
+      "imageUrl": "https://picsum.photos/seed/project3/600/400",
+      "imageHint": "writing article"
+    },
+    {
+      "id": "project-4",
+      "description": "Screenshot of a social media analytics tool",
+      "imageUrl": "https://picsum.photos/seed/project4/600/400",
+      "imageHint": "social media"
+    },
+    {
+      "id": "project-5",
+      "description": "Screenshot of a weather application",
+      "imageUrl": "https://picsum.photos/seed/project5/600/400",
+      "imageHint": "weather map"
+    },
+    {
+      "id": "project-6",
+      "description": "Screenshot of a recipe finding website",
+      "imageUrl": "https://picsum.photos/seed/project6/600/400",
+      "imageHint": "food cooking"
+    }
+  ]
 }
