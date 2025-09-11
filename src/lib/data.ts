@@ -7,6 +7,7 @@ export type Project = {
   technologies: string[];
   imageUrl: string;
   imageHint: string;
+  category: 'Web' | 'Mobile' | 'Design';
   liveUrl?: string;
 };
 
@@ -27,6 +28,7 @@ export const projectsData: Project[] = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754583125/ldzfch8sknfb5hfaekte.jpg",
     imageHint: "funding platform",
+    category: "Web",
     liveUrl: "https://www.benartwork07.com/"
   },
   {
@@ -36,6 +38,7 @@ export const projectsData: Project[] = [
     technologies: ["React", "Node.js", "MongoDB", "Charts"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582928/hb5dzf63uhaft4huyukr.jpg",
     imageHint: "financial dashboard",
+    category: "Web",
     liveUrl: "https://store.ekasaputra.my.id/"
   },
   {
@@ -45,6 +48,7 @@ export const projectsData: Project[] = [
     technologies: ["Gatsby", "GraphQL", "Stripe"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582540/h9emir3cpruwoyghlehi.jpg",
     imageHint: "online shopping",
+    category: "Web",
     liveUrl: "https://ekspost.vercel.app/index"
   },
   {
@@ -53,7 +57,8 @@ export const projectsData: Project[] = [
     description: "An analytics dashboard to monitor social media engagement and performance across multiple platforms.",
     technologies: ["Vue.js", "Chart.js", "Firebase"],
     imageUrl: "https://picsum.photos/seed/project4/600/400",
-    imageHint: "social media"
+    imageHint: "social media",
+    category: "Web",
   },
   {
     id: 5,
@@ -61,7 +66,8 @@ export const projectsData: Project[] = [
     description: "A simple and elegant weather app that provides real-time weather data and forecasts for any location.",
     technologies: ["React", "OpenWeatherMap API"],
     imageUrl: "https://picsum.photos/seed/project5/600/400",
-    imageHint: "weather map"
+    imageHint: "weather map",
+    category: "Mobile",
   },
   {
     id: 6,
@@ -69,7 +75,8 @@ export const projectsData: Project[] = [
     description: "A web application to discover new recipes based on available ingredients, with filters and a favorites list.",
     technologies: ["Angular", "TypeScript", "Spoonacular API"],
     imageUrl: "https://picsum.photos/seed/project6/600/400",
-    imageHint: "food cooking"
+    imageHint: "food cooking",
+    category: "Web",
   },
 ];
 

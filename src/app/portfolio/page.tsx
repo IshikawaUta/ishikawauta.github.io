@@ -1,4 +1,7 @@
 
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +11,18 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+type Category = "All" | "Web" | "Mobile" | "Design";
+
 export default function PortfolioPage() {
+  const [filter, setFilter] = useState<Category>("All");
+
+  const categories: Category[] = ["All", "Web", "Mobile", "Design"];
+
+  const filteredProjects =
+    filter === "All"
+      ? projectsData
+      : projectsData.filter((p) => p.category === filter);
+
   return (
     <div className="space-y-12">
       <div className="text-center">
@@ -20,8 +34,21 @@ export default function PortfolioPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.map((project) => {
+      <div className="flex justify-center gap-2 md:gap-4 mb-8">
+        {categories.map((category) => (
+          <Button
+            key={category}
+            variant={filter === category ? "default" : "outline"}
+            onClick={() => setFilter(category)}
+            className="rounded-full transition-all"
+          >
+            {category}
+          </Button>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate__animated animate__fadeInUp">
+        {filteredProjects.map((project) => {
           const hasEffect = ![1, 2, 3].includes(project.id);
           return (
             <Card key={project.id} className="overflow-hidden group flex flex-col">
