@@ -3,7 +3,7 @@
     {
       "id": "about-me",
       "description": "A portrait of a developer",
-      "imageUrl": "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754583125/ldzfch8sknfb5hfaekte.jpg",
+      "imageUrl": "https://picsum.photos/seed/about/600/600",
       "imageHint": "developer portrait"
     },
     {
