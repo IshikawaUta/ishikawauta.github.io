@@ -100,7 +100,7 @@
   }
 
   .btn-slide-effect-inverted {
-    @apply relative overflow-hidden transition-all duration-300 ease-in-out bg-transparent text-primary border-2 border-primary;
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out text-primary;
     z-index: 1;
   }
 
