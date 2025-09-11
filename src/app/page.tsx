@@ -9,16 +9,23 @@ import { ArrowRight, Briefcase, Code2, MapPin, Award, Users, FolderKanban } from
 import { projectsData, skillsData } from '@/lib/data';
 import { TypeAnimation } from 'react-type-animation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
 
 export default function Home() {
   const featuredProjects = projectsData.slice(0, 3);
   const aboutImage = PlaceHolderImages.find(img => img.id === 'about-me');
 
   const stats = [
-    { value: "4+", label: "Years of Experience", icon: Award },
-    { value: "15+", label: "Happy Clients", icon: Users },
-    { value: "20+", label: "Projects Completed", icon: FolderKanban },
+    { value: 4, suffix: "+", label: "Years of Experience", icon: Award },
+    { value: 15, suffix: "+", label: "Happy Clients", icon: Users },
+    { value: 20, suffix: "+", label: "Projects Completed", icon: FolderKanban },
   ];
+
+  const { ref: statsRef, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   return (
     <div className="space-y-24">
@@ -51,7 +58,7 @@ export default function Home() {
             <Button asChild size="lg" className="btn-shine-effect">
                 <Link href="/contact">LET'S START</Link>
             </Button>
-            <Button asChild size="lg" className="btn-shine-effect btn-outline-primary">
+            <Button asChild size="lg" variant="outline" className="btn-shine-effect">
                 <Link href="/portfolio">My Portfolio</Link>
             </Button>
           </div>
@@ -81,11 +88,14 @@ export default function Home() {
             <p className="text-foreground/80 mb-6 leading-relaxed">
               A passionate web developer focused on creating elegant and efficient digital solutions. I specialize in <span className="font-semibold text-primary">full-stack development</span> with expertise in modern web technologies and frameworks, always aiming to build intuitive and high-performance applications.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+            <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {stats.map(stat => (
                 <div key={stat.label} className="bg-primary/10 p-4 rounded-lg text-center group transform transition-transform hover:-translate-y-1">
                   <stat.icon className="w-8 h-8 text-primary mx-auto mb-2"/>
-                  <p className="text-2xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110">{stat.value}</p>
+                  <p className="text-2xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110">
+                    {inView && <CountUp end={stat.value} duration={2.5} />}
+                    {stat.suffix}
+                  </p>
                   <p className="text-sm text-foreground/80">{stat.label}</p>
                 </div>
               ))}
@@ -143,9 +153,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
-
-
