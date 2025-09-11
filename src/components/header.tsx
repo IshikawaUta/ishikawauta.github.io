@@ -18,7 +18,7 @@ export default function Header() {
       href={href}
       className={cn(
         "text-sm font-medium transition-colors hover:text-primary",
-        pathname === href ? "text-primary" : "text-foreground/80"
+        pathname === href ? "text-primary" : "text-foreground"
       )}
       onClick={() => setIsMobileMenuOpen(false)}
     >
@@ -28,26 +28,29 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex">
+      <div className="container flex h-20 items-center justify-between">
+        <div className="mr-4 flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold font-headline text-lg text-primary">
-              Eka Saputra
+            <span className="font-bold text-lg">
+              MY PORTFOLIO
             </span>
           </Link>
-          <nav className="hidden gap-6 md:flex">
-            {navLinks.map((link) => (
-              <NavLink key={link.href} {...link} />
-            ))}
-          </nav>
         </div>
 
-        <div className="flex flex-1 items-center justify-end">
+        <nav className="hidden gap-6 md:flex items-center">
+          {navLinks.map((link) => (
+            <NavLink key={link.href} {...link} />
+          ))}
+          <Button asChild>
+            <Link href="/contact">LET'S START</Link>
+          </Button>
+        </nav>
+
+        <div className="flex items-center md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
-                className="md:hidden"
                 aria-label="Toggle Menu"
               >
                 <Menu className="h-5 w-5" />
@@ -57,8 +60,8 @@ export default function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center border-b pb-4">
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                    <span className="font-bold font-headline text-lg text-primary">
-                      Eka Saputra
+                    <span className="font-bold text-lg">
+                      MY PORTFOLIO
                     </span>
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
@@ -79,6 +82,9 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                   <Button asChild className="mt-4">
+                    <Link href="/contact">LET'S START</Link>
+                  </Button>
                 </nav>
               </div>
             </SheetContent>

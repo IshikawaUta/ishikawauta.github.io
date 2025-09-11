@@ -11,42 +11,63 @@ export default function Home() {
 
   return (
     <div className="space-y-24">
-      <section id="hero" className="text-center animate__animated animate__fadeIn">
-        <h1 className="text-4xl md:text-6xl font-headline font-bold text-primary mb-4">
-          Eka Saputra
-        </h1>
-        <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-          A passionate <span className="text-primary">Full Stack Developer</span> crafting elegant and performant web solutions.
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Button asChild size="lg">
-            <Link href="/portfolio">
-              View My Work <ArrowRight className="ml-2" />
-            </Link>
-          </Button>
-          <Button asChild variant="secondary" size="lg">
-            <a href="/eka_saputra_cv.pdf" download>
-              Download CV <Download className="ml-2" />
-            </a>
-          </Button>
+      <section id="hero" className="grid md:grid-cols-2 gap-12 items-center animate__animated animate__fadeIn">
+        <div>
+          <p className="text-lg md:text-xl text-foreground/80 mb-2">
+            My Name Robith Yusuf Al Fahsa 👋
+          </p>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
+            I'm a <span className="text-primary">Web Developer</span>
+          </h1>
+          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl">
+            Based in Kota Kudus, Indonesia.
+          </p>
+          <div className="flex gap-4">
+            <Button asChild size="lg">
+              <Link href="/contact">
+                Let's Start
+              </Link>
+            </Button>
+          </div>
+        </div>
+        <div className="relative flex justify-center items-center">
+            <div className="absolute bg-orange-200/50 blur-3xl rounded-full w-full h-full -z-10"></div>
+            <div className="absolute w-[420px] h-[420px] bg-gray-800 rounded-full flex items-center justify-center">
+                 <Image
+                    src="https://picsum.photos/seed/aboutme/400/400"
+                    alt="Robith Yusuf Al Fahsa"
+                    width={400}
+                    height={400}
+                    className="rounded-full object-cover"
+                    data-ai-hint="developer portrait"
+                />
+            </div>
+            <Badge variant="default" className="absolute top-8 text-sm py-1 px-3">
+                <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+                FULLSTACK DEV
+            </Badge>
+            <Badge variant="default" className="absolute bottom-8 text-sm py-1 px-3">
+                 <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+                SYSTEM ANALYST
+            </Badge>
         </div>
       </section>
 
       <section id="about" className="grid md:grid-cols-3 gap-12 items-center animate__animated animate__fadeInUp">
         <div className="md:col-span-1 flex justify-center">
           <Image
-            src="https://picsum.photos/seed/aboutme/400/400"
+            src="https://picsum.photos/seed/aboutme2/400/400"
             alt="Eka Saputra"
             width={400}
             height={400}
-            className="rounded-full border-4 border-primary/50 shadow-lg object-cover"
-            data-ai-hint="developer portrait"
+            className="rounded-lg border-4 border-primary/20 shadow-lg object-cover"
+            data-ai-hint="developer working"
           />
         </div>
         <div className="md:col-span-2">
           <h2 className="text-3xl font-headline text-primary mb-4">About Me</h2>
           <p className="text-foreground/80 mb-4 leading-relaxed">
-            Hello! I&apos;m Eka, a full-stack developer with a passion for building beautiful and functional web applications. With a strong foundation in both front-end and back-end technologies, I specialize in bringing ideas to life from concept to deployment.
+            Hello! I'm Eka, a full-stack developer with a passion for building beautiful and functional web applications. With a strong foundation in both front-end and back-end technologies, I specialize in bringing ideas to life from concept to deployment.
           </p>
           <p className="text-foreground/80 leading-relaxed">
             I thrive on solving complex problems and am constantly learning to keep up with the fast-paced world of web development. My goal is to create seamless, intuitive, and engaging user experiences.
