@@ -27,6 +27,8 @@ export default function Home() {
     threshold: 0.5,
   });
 
+  const skillCategories = ['Frontend', 'Backend', 'Tools'];
+
   return (
     <div className="space-y-24">
       <section id="hero" className="relative bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden">
@@ -58,7 +60,7 @@ export default function Home() {
             <Button asChild size="lg" className="btn-shine-effect">
                 <Link href="/contact">LET'S START</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="btn-shine-effect">
+            <Button asChild size="lg" variant="outline" className="btn-shine-effect btn-outline-primary">
                 <Link href="/portfolio">My Portfolio</Link>
             </Button>
           </div>
@@ -110,20 +112,38 @@ export default function Home() {
       </section>
 
       <section id="skills" className="animate__animated animate__fadeInUp">
-        <h2 className="text-3xl font-headline text-primary text-center mb-8">My Skills</h2>
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            {skillsData.map((skill) => (
-              <Card key={skill.name} className="bg-card/80 hover:bg-card transition-all duration-300 transform hover:-translate-y-1 text-center group">
-                <CardContent className="p-4 flex flex-col items-center justify-center gap-3">
-                  <div className="bg-primary/10 p-4 rounded-full group-hover:bg-primary transition-all duration-300">
-                    <skill.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-all duration-300" />
-                  </div>
-                  <span className="font-medium text-sm mt-2">{skill.name}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <h2 className="text-3xl font-headline text-primary text-center mb-12">My Skills</h2>
+        <div className="space-y-10">
+          {skillCategories.map((category) => (
+            <div key={category}>
+              <h3 className="text-2xl font-semibold text-foreground mb-6">{category}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {skillsData
+                  .filter((skill) => skill.category === category)
+                  .map((skill) => (
+                    <Card key={skill.name} className="bg-card/80 border-t-4 border-t-primary shadow-sm hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <skill.icon className="w-10 h-10 text-primary" />
+                          <div className="flex items-center gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <span
+                                key={i}
+                                className={`h-2 w-2 rounded-full ${i < skill.levelValue ? 'bg-primary' : 'bg-muted'}`}
+                              ></span>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-lg text-foreground">{skill.name}</h4>
+                          <p className="text-sm text-foreground/70">{skill.level}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

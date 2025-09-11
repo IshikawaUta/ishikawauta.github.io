@@ -10,6 +10,15 @@ export type Project = {
   imageHint: string;
 };
 
+export type Skill = {
+  name: string;
+  icon: React.ComponentType<{ className?: string }>;
+  level: string;
+  levelValue: number;
+  category: 'Frontend' | 'Backend' | 'Tools';
+};
+
+
 export const projectsData: Project[] = [
   {
     id: 1,
@@ -61,20 +70,21 @@ export const projectsData: Project[] = [
   },
 ];
 
-export const skillsData: { name: string; icon: React.ComponentType<{ className?: string }> }[] = [
-    { name: "React", icon: Icons.react },
-    { name: "Next.js", icon: Icons.nextjs },
-    { name: "Node.js", icon: Icons.nodejs },
-    { name: "TypeScript", icon: Icons.typescript },
-    { name: "JavaScript", icon: Icons.javascript },
-    { name: "Tailwind CSS", icon: Icons.tailwind },
-    { name: "MongoDB", icon: Icons.mongodb },
-    { name: "PostgreSQL", icon: Icons.postgresql },
-    { name: "Docker", icon: Icons.docker },
-    { name: "Git", icon: Icons.git },
-    { name: "HTML5", icon: Icons.html5 },
-    { name: "CSS3", icon: Icons.css3 },
+export const skillsData: Skill[] = [
+    { name: "React", icon: Icons.react, level: "Advanced", levelValue: 4, category: "Frontend" },
+    { name: "Next.js", icon: Icons.nextjs, level: "Advanced", levelValue: 4, category: "Frontend" },
+    { name: "JavaScript", icon: Icons.javascript, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "TypeScript", icon: Icons.typescript, level: "Advanced", levelValue: 4, category: "Frontend" },
+    { name: "HTML5", icon: Icons.html5, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "CSS3", icon: Icons.css3, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "Tailwind CSS", icon: Icons.tailwind, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "Node.js", icon: Icons.nodejs, level: "Intermediate", levelValue: 3, category: "Backend" },
+    { name: "MongoDB", icon: Icons.mongodb, level: "Intermediate", levelValue: 3, category: "Backend" },
+    { name: "PostgreSQL", icon: Icons.postgresql, level: "Intermediate", levelValue: 3, category: "Backend" },
+    { name: "Docker", icon: Icons.docker, level: "Intermediate", levelValue: 3, category: "Tools" },
+    { name: "Git", icon: Icons.git, level: "Advanced", levelValue: 4, category: "Tools" },
 ];
+
 
 export const navLinks = [
     { href: "/", label: "Home" },
