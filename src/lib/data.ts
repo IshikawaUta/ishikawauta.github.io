@@ -34,7 +34,7 @@ export const projectsData: Project[] = [
     title: "PLN Financial Management Portal",
     description: "A comprehensive platform for managing electricity bills, payments, and customer financial transactions.",
     technologies: ["React", "Node.js", "MongoDB", "Charts"],
-    imageUrl: "https://picsum.photos/seed/pln/600/400",
+    imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582928/hb5dzf63uhaft4huyukr.jpg",
     imageHint: "financial dashboard"
   },
   {
