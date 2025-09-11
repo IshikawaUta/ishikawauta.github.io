@@ -83,14 +83,18 @@
 
 @layer components {
   .btn-slide-effect {
-    @apply relative overflow-hidden transition-all duration-300 ease-in-out;
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out text-primary-foreground;
     z-index: 1;
   }
 
   .btn-slide-effect::before {
     content: '';
-    @apply absolute top-0 left-0 w-0 h-full bg-primary/80 transition-all duration-300 ease-in-out;
+    @apply absolute top-0 left-0 w-0 h-full bg-accent transition-all duration-300 ease-in-out;
     z-index: -1;
+  }
+
+  .btn-slide-effect:hover {
+    @apply text-accent-foreground;
   }
 
   .btn-slide-effect:hover::before {
