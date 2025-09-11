@@ -98,4 +98,23 @@
   .btn-slide-effect:hover::before {
     @apply w-full;
   }
+
+  .btn-slide-effect-inverted {
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out bg-transparent text-primary border-2 border-primary;
+    z-index: 1;
+  }
+
+  .btn-slide-effect-inverted::before {
+    content: '';
+    @apply absolute top-0 left-0 w-0 h-full bg-primary transition-all duration-300 ease-in-out;
+    z-index: -1;
+  }
+
+  .btn-slide-effect-inverted:hover {
+    @apply text-primary-foreground;
+  }
+
+  .btn-slide-effect-inverted:hover::before {
+    @apply w-full;
+  }
 }
