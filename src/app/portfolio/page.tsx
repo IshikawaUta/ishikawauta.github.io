@@ -10,6 +10,13 @@ import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { Metadata } from 'next';
+
+// This metadata will be static for this page
+export const metadata: Metadata = {
+  title: "My Portfolio | Eka Saputra",
+  description: "A collection of web development, mobile, and design projects by Eka Saputra.",
+};
 
 type Category = "All" | "Web" | "Mobile" | "Design";
 

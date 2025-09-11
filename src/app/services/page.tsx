@@ -7,6 +7,13 @@ import { Check, Code2, MessageCircle, Paintbrush, CloudUpload } from "lucide-rea
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "My Services | Eka Saputra",
+  description: "Explore the web development, UI/UX design, and deployment services offered by Eka Saputra.",
+};
+
 
 const services = [
   {
