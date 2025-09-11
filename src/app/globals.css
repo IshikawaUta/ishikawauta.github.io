@@ -83,7 +83,7 @@
 
 @layer components {
   .btn-custom {
-    @apply relative;
+    @apply relative bg-primary;
     z-index: 1;
   }
 
@@ -98,8 +98,13 @@
     transition: all 0.2s ease-in-out;
   }
   
+  .btn-custom:hover {
+    @apply bg-foreground/80;
+  }
+
   .btn-custom:hover::after {
     top: 0;
     left: 0;
+    @apply bg-primary;
   }
 }
