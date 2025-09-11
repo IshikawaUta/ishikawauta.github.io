@@ -1,5 +1,4 @@
-import { Icons } from "@/components/icons";
-import { Award, Users, FolderKanban } from 'lucide-react';
+import { Award, Users, FolderKanban, Database, Code, Server, Tool, Monitor, Wind, CookingPot } from 'lucide-react';
 
 export type Project = {
   id: number;
@@ -71,18 +70,18 @@ export const projectsData: Project[] = [
 ];
 
 export const skillsData: Skill[] = [
-    { name: "React", icon: Icons.react, level: "Advanced", levelValue: 4, category: "Frontend" },
-    { name: "Next.js", icon: Icons.nextjs, level: "Advanced", levelValue: 4, category: "Frontend" },
-    { name: "JavaScript", icon: Icons.javascript, level: "Expert", levelValue: 5, category: "Frontend" },
-    { name: "TypeScript", icon: Icons.typescript, level: "Advanced", levelValue: 4, category: "Frontend" },
-    { name: "HTML5", icon: Icons.html5, level: "Expert", levelValue: 5, category: "Frontend" },
-    { name: "CSS3", icon: Icons.css3, level: "Expert", levelValue: 5, category: "Frontend" },
-    { name: "Tailwind CSS", icon: Icons.tailwind, level: "Expert", levelValue: 5, category: "Frontend" },
-    { name: "Node.js", icon: Icons.nodejs, level: "Intermediate", levelValue: 3, category: "Backend" },
-    { name: "MongoDB", icon: Icons.mongodb, level: "Intermediate", levelValue: 3, category: "Backend" },
-    { name: "PostgreSQL", icon: Icons.postgresql, level: "Intermediate", levelValue: 3, category: "Backend" },
-    { name: "Docker", icon: Icons.docker, level: "Intermediate", levelValue: 3, category: "Tools" },
-    { name: "Git", icon: Icons.git, level: "Advanced", levelValue: 4, category: "Tools" },
+    { name: "React", icon: Code, level: "Advanced", levelValue: 4, category: "Frontend" },
+    { name: "Next.js", icon: Code, level: "Advanced", levelValue: 4, category: "Frontend" },
+    { name: "JavaScript", icon: Code, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "TypeScript", icon: Code, level: "Advanced", levelValue: 4, category: "Frontend" },
+    { name: "HTML5", icon: Code, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "CSS3", icon: Code, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "Tailwind CSS", icon: Wind, level: "Expert", levelValue: 5, category: "Frontend" },
+    { name: "Node.js", icon: Server, level: "Intermediate", levelValue: 3, category: "Backend" },
+    { name: "MongoDB", icon: Database, level: "Intermediate", levelValue: 3, category: "Backend" },
+    { name: "PostgreSQL", icon: Database, level: "Intermediate", levelValue: 3, category: "Backend" },
+    { name: "Docker", icon: Monitor, level: "Intermediate", levelValue: 3, category: "Tools" },
+    { name: "Git", icon: Tool, level: "Advanced", levelValue: 4, category: "Tools" },
 ];
 
 
@@ -92,5 +91,3 @@ export const navLinks = [
     { href: "/portfolio", label: "Portfolio" },
     { href: "/contact", label: "Contact" },
 ];
-
-    
