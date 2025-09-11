@@ -41,7 +41,7 @@ export const projectsData: Project[] = [
   {
     id: 3,
     title: "Ekspost",
-    description: "Website yang dibuat dengan menggunakan Flask sebagai backend dan Bootstrap sebagai frontend juga MongoDB Atlas serta Imgur sebagai penyimpanan manajemen konten",
+    description: "Web ini dibuat dengan menggunakan Flask sebagai backend dan Bootstrap sebagai frontend juga MongoDB Atlas dan cloudinary sebagai penyimpanan manajemen konten",
     technologies: ["Gatsby", "GraphQL", "Stripe"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582540/h9emir3cpruwoyghlehi.jpg",
     imageHint: "online shopping",
