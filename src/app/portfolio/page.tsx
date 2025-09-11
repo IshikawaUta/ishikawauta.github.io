@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,17 +22,30 @@ export default function PortfolioPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectsData.map((project) => (
           <Card key={project.id} className="overflow-hidden group flex flex-col">
-            <div className="overflow-hidden relative">
-              <Image
-                src={project.imageUrl}
-                alt={project.title}
-                width={600}
-                height={400}
-                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
-                data-ai-hint={project.imageHint}
-              />
-               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-            </div>
+            {project.id === 1 ? (
+              <div className="relative w-full h-56">
+                <Image
+                  src={project.imageUrl}
+                  alt={project.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="w-full h-full"
+                  data-ai-hint={project.imageHint}
+                />
+              </div>
+            ) : (
+              <div className="overflow-hidden relative">
+                <Image
+                  src={project.imageUrl}
+                  alt={project.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                  data-ai-hint={project.imageHint}
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+              </div>
+            )}
             <CardHeader>
               <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
             </CardHeader>

@@ -167,17 +167,30 @@ export default function Home() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => (
             <Card key={project.id} className="overflow-hidden group flex flex-col">
-              <div className="overflow-hidden relative">
-                <Image
-                  src={project.imageUrl}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
-                  data-ai-hint={project.imageHint}
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-              </div>
+              {project.id === 1 ? (
+                <div className="relative w-full h-56">
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="w-full h-full"
+                    data-ai-hint={project.imageHint}
+                  />
+                </div>
+              ) : (
+                <div className="overflow-hidden relative">
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                    data-ai-hint={project.imageHint}
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                </div>
+              )}
               <CardContent className="p-6 flex-grow flex flex-col">
                 <h3 className="font-headline text-xl mb-2 flex-grow">{project.title}</h3>
                 <p className="text-foreground/80 text-sm mb-4 h-24">{project.description}</p>
