@@ -186,7 +186,7 @@ export default function Home() {
                   )}
                 </div>
                 <CardContent className="p-6 flex-grow flex flex-col">
-                  <h3 className="font-headline text-xl mb-2 flex-grow">{project.title}</h3>
+                  <h3 className="font-headline text-xl mb-2 flex-grow font-bold">{project.title}</h3>
                   <p className="text-foreground/80 text-sm mb-4 h-24">{project.description}</p>
                   <Button asChild variant="link" className="p-0 text-primary mt-auto">
                     <Link href={project.liveUrl || `/portfolio`} target={project.liveUrl ? '_blank' : '_self'}>
