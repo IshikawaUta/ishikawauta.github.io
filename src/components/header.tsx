@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/lib/data";
 
@@ -57,17 +57,14 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center border-b pb-4">
+              <SheetHeader className="border-b pb-4">
+                <SheetTitle className="text-left">
                   <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                    <span className="font-bold text-lg">
                       MY PORTFOLIO
-                    </span>
                   </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)}>
-                    <X className="h-5 w-5" />
-                  </Button>
-                </div>
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col h-full">
                 <nav className="flex flex-col gap-4 mt-8">
                   {navLinks.map((link) => (
                     <Link
