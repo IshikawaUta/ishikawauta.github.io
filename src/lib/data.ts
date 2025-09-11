@@ -1,4 +1,4 @@
-import { Award, Users, FolderKanban, Database, Code, Server, Tool, Monitor, Wind, CookingPot } from 'lucide-react';
+import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind, CookingPot } from 'lucide-react';
 
 export type Project = {
   id: number;
@@ -81,7 +81,7 @@ export const skillsData: Skill[] = [
     { name: "MongoDB", icon: Database, level: "Intermediate", levelValue: 3, category: "Backend" },
     { name: "PostgreSQL", icon: Database, level: "Intermediate", levelValue: 3, category: "Backend" },
     { name: "Docker", icon: Monitor, level: "Intermediate", levelValue: 3, category: "Tools" },
-    { name: "Git", icon: Tool, level: "Advanced", levelValue: 4, category: "Tools" },
+    { name: "Git", icon: GitBranch, level: "Advanced", levelValue: 4, category: "Tools" },
 ];
 
 
