@@ -80,3 +80,26 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .btn-custom {
+    @apply relative;
+    z-index: 1;
+  }
+
+  .btn-custom::after {
+    content: '';
+    @apply absolute bg-foreground/80;
+    width: 100%;
+    height: 100%;
+    top: 5px;
+    left: 5px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-custom:hover::after {
+    top: 0;
+    left: 0;
+  }
+}
