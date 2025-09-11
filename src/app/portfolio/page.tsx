@@ -22,7 +22,7 @@ export default function PortfolioPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectsData.map((project) => (
           <Card key={project.id} className="overflow-hidden group flex flex-col">
-            {project.id === 1 ? (
+            {project.id === 1 || project.id === 2 ? (
               <div className="relative w-full h-56">
                 <Image
                   src={project.imageUrl}

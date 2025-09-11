@@ -167,7 +167,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => (
             <Card key={project.id} className="overflow-hidden group flex flex-col">
-              {project.id === 1 ? (
+              {project.id === 1 || project.id === 2 ? (
                 <div className="relative w-full h-56">
                   <Image
                     src={project.imageUrl}
