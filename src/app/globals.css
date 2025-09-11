@@ -94,7 +94,7 @@
   }
 
   .btn-slide-effect:hover {
-    @apply text-accent-foreground;
+    @apply text-accent-foreground border-2 border-accent-foreground;
   }
 
   .btn-slide-effect:hover::before {
