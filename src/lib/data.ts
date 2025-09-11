@@ -51,33 +51,6 @@ export const projectsData: Project[] = [
     category: "Web",
     liveUrl: "https://ekspost.vercel.app/index"
   },
-  {
-    id: 4,
-    title: "Social Media Dashboard",
-    description: "An analytics dashboard to monitor social media engagement and performance across multiple platforms.",
-    technologies: ["Vue.js", "Chart.js", "Firebase"],
-    imageUrl: "https://picsum.photos/seed/project4/600/400",
-    imageHint: "social media",
-    category: "Web",
-  },
-  {
-    id: 5,
-    title: "Weather Forecast App",
-    description: "A simple and elegant weather app that provides real-time weather data and forecasts for any location.",
-    technologies: ["React", "OpenWeatherMap API"],
-    imageUrl: "https://picsum.photos/seed/project5/600/400",
-    imageHint: "weather map",
-    category: "Mobile",
-  },
-  {
-    id: 6,
-    title: "Recipe Finder",
-    description: "A web application to discover new recipes based on available ingredients, with filters and a favorites list.",
-    technologies: ["Angular", "TypeScript", "Spoonacular API"],
-    imageUrl: "https://picsum.photos/seed/project6/600/400",
-    imageHint: "food cooking",
-    category: "Web",
-  },
 ];
 
 export const skillsData: Skill[] = [
