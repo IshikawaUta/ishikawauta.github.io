@@ -32,7 +32,7 @@ export default function RootLayout({
       </head>
       <body className={cn('font-body antialiased min-h-screen flex flex-col')}>
         <Header />
-        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 animate__animated animate__fadeInUp">
           {children}
         </main>
         <Footer />

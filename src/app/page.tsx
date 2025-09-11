@@ -74,7 +74,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="animate__animated animate__fadeInUp">
+      <section id="about">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
              {aboutImage && (
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className="animate__animated animate__fadeInUp">
+      <section id="skills">
         <h2 className="text-3xl font-headline text-primary text-center mb-12">My Skills</h2>
         <TooltipProvider>
           <div className="space-y-10">
@@ -163,7 +163,7 @@ export default function Home() {
         </TooltipProvider>
       </section>
 
-      <section id="featured-projects" className="animate__animated animate__fadeInUp">
+      <section id="featured-projects">
         <h2 className="text-3xl font-headline text-primary text-center mb-12">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => {

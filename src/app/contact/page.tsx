@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <div className="animate__animated animate__fadeIn">
+    <div>
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-headline text-primary mb-4">
           Get In Touch

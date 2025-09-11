@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export default function PortfolioPage() {
   return (
-    <div className="space-y-12 animate__animated animate__fadeIn">
+    <div className="space-y-12">
       <div className="text-center">
         <h1 className="text-4xl md:text-5xl font-headline text-primary mb-4">
           My Portfolio

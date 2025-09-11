@@ -26,7 +26,7 @@ export default function ServicesPage() {
   const whatsappLink = "https://wa.me/62895701060973?text=Hello%2C%20I'm%20interested%20in%20your%20web%20development%20services.";
 
   return (
-    <div className="space-y-16 animate__animated animate__fadeIn">
+    <div className="space-y-16">
       <div className="text-center">
         <h1 className="text-4xl md:text-5xl font-headline text-primary mb-4">
           My Services
