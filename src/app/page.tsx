@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Power, PowerOff } from 'lucide-react';
+import { ArrowRight, Power } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 import { Icons } from '@/components/icons';
 import { TypeAnimation } from 'react-type-animation';

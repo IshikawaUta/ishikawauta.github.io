@@ -98,12 +98,12 @@
     @apply translate-x-[140px] animate-power-on;
   }
   .btn-switch-label {
-    @apply absolute text-sm font-bold;
+    @apply absolute z-10 text-sm font-bold;
   }
   .btn-switch-label-on {
-    @apply right-6 text-primary;
+    @apply right-8 text-primary;
   }
   .btn-switch-label-off {
-    @apply left-6 text-foreground/50;
+    @apply left-8 text-foreground/50;
   }
 }
