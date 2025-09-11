@@ -77,14 +77,17 @@ export default function Home() {
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
              {aboutImage && (
-              <div className="relative w-full mx-auto aspect-square rounded-lg overflow-hidden">
-                <Image
-                  src={aboutImage.imageUrl}
-                  alt={aboutImage.description}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={aboutImage.imageHint}
-                />
+              <div className="relative w-full max-w-sm mx-auto aspect-square p-2 rounded-full bg-gradient-to-tr from-primary/50 to-accent/50">
+                <div className="relative w-full h-full rounded-full overflow-hidden shadow-inner">
+                  <Image
+                    src={aboutImage.imageUrl}
+                    alt={aboutImage.description}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={aboutImage.imageHint}
+                  />
+                  <div className="absolute inset-0 bg-black/40"></div>
+                </div>
               </div>
             )}
           </div>
