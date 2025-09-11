@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, Bot } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 
 export default function Home() {
@@ -11,50 +11,45 @@ export default function Home() {
 
   return (
     <div className="space-y-24">
-      <section id="hero" className="grid md:grid-cols-2 gap-12 items-center animate__animated animate__fadeIn">
-        <div>
+      <section id="hero" className="grid md:grid-cols-1 gap-12 items-center animate__animated animate__fadeIn">
+        <div className='text-center'>
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
             My Name Robith Yusuf Al Fahsa 👋
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
             I'm a <span className="text-primary">Web Developer</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl">
+          <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl mx-auto">
             Based in Kota Kudus, Indonesia.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 justify-center">
             <Button asChild size="lg">
               <Link href="/contact">
                 Let's Start
               </Link>
             </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/portfolio">
+                My Portfolio
+              </Link>
+            </Button>
           </div>
-        </div>
-        <div className="relative flex justify-center items-center h-[420px]">
-            <div className="absolute bg-orange-200/50 blur-3xl rounded-full w-full h-full -z-10"></div>
-            <div className="absolute w-[420px] h-[420px] bg-gray-800 rounded-full flex items-center justify-center">
-                 <Image
-                    src="https://picsum.photos/seed/aboutme/400/400"
-                    alt="Robith Yusuf Al Fahsa"
-                    width={400}
-                    height={400}
-                    className="rounded-full object-cover"
-                    data-ai-hint="developer portrait"
-                />
-            </div>
         </div>
       </section>
 
       <section id="about" className="grid md:grid-cols-3 gap-12 items-center animate__animated animate__fadeInUp">
         <div className="md:col-span-1 flex justify-center">
-          <Image
-            src="https://picsum.photos/seed/aboutme2/400/400"
-            alt="Eka Saputra"
-            width={400}
-            height={400}
-            className="rounded-lg border-4 border-primary/20 shadow-lg object-cover"
-            data-ai-hint="developer working"
-          />
+          <div className="relative w-80 h-80">
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl"></div>
+            <Image
+              src="https://picsum.photos/seed/aboutme2/400/400"
+              alt="Eka Saputra"
+              width={320}
+              height={320}
+              className="rounded-full border-4 border-primary/20 shadow-lg object-cover absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              data-ai-hint="developer working"
+            />
+          </div>
         </div>
         <div className="md:col-span-2">
           <h2 className="text-3xl font-headline text-primary mb-4">About Me</h2>
@@ -69,15 +64,19 @@ export default function Home() {
 
       <section id="skills" className="animate__animated animate__fadeInUp">
         <h2 className="text-3xl font-headline text-primary text-center mb-8">My Skills</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {skillsData.map((skill) => (
-            <Card key={skill.name} className="bg-card/80 hover:bg-card transition-all duration-300 transform hover:-translate-y-1 text-center">
-              <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
-                <skill.icon className="w-10 h-10 text-primary" />
-                <span className="font-medium text-sm">{skill.name}</span>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {skillsData.map((skill) => (
+              <Card key={skill.name} className="bg-card/80 hover:bg-card transition-all duration-300 transform hover:-translate-y-1 text-center group">
+                <CardContent className="p-4 flex flex-col items-center justify-center gap-3">
+                  <div className="bg-primary/10 p-4 rounded-full group-hover:bg-primary transition-all duration-300">
+                    <skill.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-all duration-300" />
+                  </div>
+                  <span className="font-medium text-sm mt-2">{skill.name}</span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
