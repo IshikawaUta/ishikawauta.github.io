@@ -43,7 +43,7 @@ export default function Home() {
             <Button asChild size="lg" className="btn-slide-effect">
                 <Link href="/contact">LET'S START</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" className="btn-slide-effect">
                 <Link href="/portfolio">My Portfolio</Link>
             </Button>
           </div>
