@@ -30,7 +30,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center h-[420px]">
             <div className="absolute bg-orange-200/50 blur-3xl rounded-full w-full h-full -z-10"></div>
             <div className="absolute w-[420px] h-[420px] bg-gray-800 rounded-full flex items-center justify-center">
                  <Image
@@ -42,11 +42,11 @@ export default function Home() {
                     data-ai-hint="developer portrait"
                 />
             </div>
-            <Badge variant="default" className="absolute top-8 text-sm py-1 px-3">
+            <Badge variant="default" className="absolute top-1/4 -left-8 text-sm py-1 px-3">
                 <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                 FULLSTACK DEV
             </Badge>
-            <Badge variant="default" className="absolute bottom-8 text-sm py-1 px-3">
+            <Badge variant="default" className="absolute bottom-1/4 -right-8 text-sm py-1 px-3">
                  <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                 SYSTEM ANALYST
             </Badge>
