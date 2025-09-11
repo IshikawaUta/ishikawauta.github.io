@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
     title: "E-Commerce Platform",
     description: "Fully-featured online shopping platform with product management and order processing.",
     technologies: ["Gatsby", "GraphQL", "Stripe"],
-    imageUrl: "https://picsum.photos/seed/ecommerce/600/400",
+    imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582540/h9emir3cpruwoyghlehi.jpg",
     imageHint: "online shopping"
   },
   {
