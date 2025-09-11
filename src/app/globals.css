@@ -32,8 +32,6 @@
     --input: 30 87% 85%;
     --ring: 26 96% 48%;
 
-    --radius: 0.5rem;
-
     --chart-1: 26 96% 48%;
     --chart-2: 30 87% 75%;
     --chart-3: 197 37% 24%;
@@ -83,7 +81,7 @@
 
 @layer components {
   .btn-slide-effect {
-    @apply relative overflow-hidden transition-all duration-300 ease-in-out text-primary-foreground;
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out bg-primary text-primary-foreground;
     z-index: 1;
   }
 
@@ -94,7 +92,7 @@
   }
 
   .btn-slide-effect:hover {
-    @apply text-accent-foreground border-2 border-accent-foreground;
+    @apply text-primary border-2 border-primary bg-transparent;
   }
 
   .btn-slide-effect:hover::before {
