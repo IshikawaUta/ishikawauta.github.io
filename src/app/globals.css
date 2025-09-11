@@ -83,7 +83,11 @@
 
 @layer components {
   .btn-custom {
-    @apply relative rounded-none;
+    @apply relative rounded-none border-2 border-foreground bg-transparent text-foreground;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-custom:hover {
+    @apply bg-foreground text-background;
   }
   .btn-custom::after {
     content: '';
@@ -93,7 +97,7 @@
     right: -6px;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    @apply border-2 border-foreground;
     transition: all 0.2s ease-in-out;
   }
   .btn-custom:hover::after {
