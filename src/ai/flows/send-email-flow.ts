@@ -50,9 +50,9 @@ const sendEmailFlow = ai.defineFlow(
     // For this example, we will simulate the email sending with an AI call.
 
     try {
-      const { output } = await prompt(input);
+      await prompt(input);
       // The prompt is instructed to always succeed.
-      return output || { success: true };
+      return { success: true };
     } catch (error) {
       console.error("Error in sendEmailFlow:", error);
       return { success: false, message: "Failed to process the email request." };
