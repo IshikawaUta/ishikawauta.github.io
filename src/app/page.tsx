@@ -134,7 +134,7 @@ export default function Home() {
                   {skillsData
                     .filter((skill) => skill.category === category)
                     .map((skill) => (
-                      <Tooltip key={skill.name}>
+                      <Tooltip key={`${category}-${skill.name}`}>
                         <TooltipTrigger asChild>
                           <Card className="bg-card/80 border-t-4 border-t-primary shadow-sm hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300">
                             <CardContent className="p-4">
