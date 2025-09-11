@@ -21,7 +21,7 @@ export type Skill = {
 export const projectsData: Project[] = [
   {
     id: 1,
-    title: "Patungin - Splitting the cost Platform",
+    title: "Benartwork",
     description: "Modern Pooling platform that enables users to create and contribute to various funding campaigns.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754583125/ldzfch8sknfb5hfaekte.jpg",
