@@ -1,4 +1,4 @@
-import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind, CookingPot } from 'lucide-react';
+import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind } from 'lucide-react';
 
 export type Project = {
   id: number;
@@ -21,27 +21,27 @@ export type Skill = {
 export const projectsData: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce site with product listings, a shopping cart, and a secure checkout process.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    imageUrl: "https://picsum.photos/seed/project1/600/400",
-    imageHint: "online store"
+    title: "Patungin - Splitting the cost Platform",
+    description: "Modern Pooling platform that enables users to create and contribute to various funding campaigns.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
+    imageUrl: "https://picsum.photos/seed/patungin/600/400",
+    imageHint: "funding platform"
   },
   {
     id: 2,
-    title: "Project Management Tool",
-    description: "A collaborative tool for teams to manage tasks, track progress, and communicate effectively.",
-    technologies: ["React", "Node.js", "MongoDB", "WebSockets"],
-    imageUrl: "https://picsum.photos/seed/project2/600/400",
-    imageHint: "dashboard analytics"
+    title: "PLN Financial Management Portal",
+    description: "A comprehensive platform for managing electricity bills, payments, and customer financial transactions.",
+    technologies: ["React", "Node.js", "MongoDB", "Charts"],
+    imageUrl: "https://picsum.photos/seed/pln/600/400",
+    imageHint: "financial dashboard"
   },
   {
     id: 3,
-    title: "Personal Blog",
-    description: "A content-focused blog platform with a clean interface and a powerful CMS for easy content management.",
-    technologies: ["Gatsby", "GraphQL", "Contentful"],
-    imageUrl: "https://picsum.photos/seed/project3/600/400",
-    imageHint: "writing article"
+    title: "E-Commerce Platform",
+    description: "Fully-featured online shopping platform with product management and order processing.",
+    technologies: ["Gatsby", "GraphQL", "Stripe"],
+    imageUrl: "https://picsum.photos/seed/ecommerce/600/400",
+    imageHint: "online shopping"
   },
   {
     id: 4,

@@ -163,26 +163,37 @@ export default function Home() {
       </section>
 
       <section id="featured-projects" className="animate__animated animate__fadeInUp">
-        <h2 className="text-3xl font-headline text-primary text-center mb-8">Featured Projects</h2>
+        <h2 className="text-3xl font-headline text-primary text-center mb-12">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden group">
-              <CardContent className="p-4">
-                <h3 className="font-headline text-xl mb-2">{project.title}</h3>
-                <p className="text-foreground/80 text-sm mb-4 h-16">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
-                  ))}
-                </div>
-                <Button asChild variant="link" className="p-0 text-primary">
-                  <Link href="/portfolio">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+            <Card key={project.id} className="overflow-hidden group flex flex-col">
+              <div className="overflow-hidden relative">
+                <Image
+                  src={project.imageUrl}
+                  alt={project.title}
+                  width={600}
+                  height={400}
+                  className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                  data-ai-hint={project.imageHint}
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+              </div>
+              <CardContent className="p-6 flex-grow flex flex-col">
+                <h3 className="font-headline text-xl mb-2 flex-grow">{project.title}</h3>
+                <p className="text-foreground/80 text-sm mb-4 h-24">{project.description}</p>
+                <Button asChild variant="link" className="p-0 text-primary mt-auto">
+                  <Link href={`/portfolio`}>
+                    View Project <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg" variant="outline" className="btn-shine-effect btn-outline-primary">
+                <Link href="/portfolio">VIEW ALL PROJECTS</Link>
+            </Button>
         </div>
       </section>
     </div>
