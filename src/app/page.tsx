@@ -20,7 +20,7 @@ export default function Home() {
             I'm a <span className="text-primary">Web Developer</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl mx-auto">
-            Based in Kota Kudus, Indonesia.
+            Based in Tangerang, Indonesia.
           </p>
           <div className="flex gap-4 justify-center">
             <Button asChild size="lg">
