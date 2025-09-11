@@ -1,12 +1,15 @@
 'use client';
 
-import { Code2 } from 'lucide-react';
-
 const Preloader = () => {
   return (
     <div id="preloader">
-      <div className="loader-logo">
-        <Code2 className="w-16 h-16 text-primary" />
+      <div className="cube-loader">
+        <div className="cube-face front"></div>
+        <div className="cube-face back"></div>
+        <div className="cube-face left"></div>
+        <div className="cube-face right"></div>
+        <div className="cube-face top"></div>
+        <div className="cube-face bottom"></div>
       </div>
     </div>
   );
