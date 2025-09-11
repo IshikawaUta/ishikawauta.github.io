@@ -29,16 +29,21 @@ export default function Home() {
     { value: 20, suffix: "+", label: "Projects Completed", icon: FolderKanban },
   ];
 
-  const { ref: statsRef, inView } = useInView({
+  const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
+
+  const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: skillsRef, inView: skillsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: projectsRef, inView: projectsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const skillCategories = ['Frontend', 'Backend', 'Tools'];
 
   return (
     <div className="space-y-24">
-      <section id="hero" className="relative bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden">
+      <section ref={heroRef} id="hero" className={cn("relative bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden", heroInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <div className="text-center relative z-10">
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
             My Name Eka Saputra 👋
@@ -74,7 +79,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about">
+      <section ref={aboutRef} id="about" className={cn(aboutInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
              {aboutImage && (
@@ -102,7 +107,7 @@ export default function Home() {
                 <div key={stat.label} className="bg-primary/10 p-4 rounded-lg text-center group transform transition-transform hover:-translate-y-1">
                   <stat.icon className="w-8 h-8 text-primary mx-auto mb-2"/>
                   <p className="text-2xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110">
-                    {inView && <CountUp end={stat.value} duration={2.5} />}
+                    {statsInView && <CountUp end={stat.value} duration={2.5} />}
                     {stat.suffix}
                   </p>
                   <p className="text-sm text-foreground/80">{stat.label}</p>
@@ -118,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills">
+      <section ref={skillsRef} id="skills" className={cn(skillsInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <h2 className="text-3xl font-headline text-primary text-center mb-12">My Skills</h2>
         <TooltipProvider>
           <div className="space-y-10">
@@ -163,7 +168,7 @@ export default function Home() {
         </TooltipProvider>
       </section>
 
-      <section id="featured-projects">
+      <section ref={projectsRef} id="featured-projects" className={cn(projectsInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <h2 className="text-3xl font-headline text-primary text-center mb-12">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => {
