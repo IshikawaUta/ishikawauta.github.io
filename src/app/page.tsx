@@ -11,6 +11,12 @@ import { TypeAnimation } from 'react-type-animation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Home() {
   const featuredProjects = projectsData.slice(0, 3);
@@ -113,38 +119,47 @@ export default function Home() {
 
       <section id="skills" className="animate__animated animate__fadeInUp">
         <h2 className="text-3xl font-headline text-primary text-center mb-12">My Skills</h2>
-        <div className="space-y-10">
-          {skillCategories.map((category) => (
-            <div key={category}>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">{category}</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                {skillsData
-                  .filter((skill) => skill.category === category)
-                  .map((skill) => (
-                    <Card key={skill.name} className="bg-card/80 border-t-4 border-t-primary shadow-sm hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300">
-                      <CardContent className="p-4">
-                        <div className="flex justify-between items-start mb-4">
-                          <skill.icon className="w-8 h-8 text-primary" />
-                          <div className="flex items-center gap-1">
-                            {[...Array(5)].map((_, i) => (
-                              <span
-                                key={i}
-                                className={`h-2 w-2 rounded-full ${i < skill.levelValue ? 'bg-primary' : 'bg-muted'}`}
-                              ></span>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-md text-foreground">{skill.name}</h4>
-                          <p className="text-xs text-foreground/70">{skill.level}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+        <TooltipProvider>
+          <div className="space-y-10">
+            {skillCategories.map((category) => (
+              <div key={category}>
+                <h3 className="text-2xl font-semibold text-foreground mb-6">{category}</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                  {skillsData
+                    .filter((skill) => skill.category === category)
+                    .map((skill) => (
+                      <Tooltip key={skill.name}>
+                        <TooltipTrigger asChild>
+                          <Card className="bg-card/80 border-t-4 border-t-primary shadow-sm hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300">
+                            <CardContent className="p-4">
+                              <div className="flex justify-between items-start mb-4">
+                                <skill.icon className="w-8 h-8 text-primary" />
+                                <div className="flex items-center gap-1">
+                                  {[...Array(5)].map((_, i) => (
+                                    <span
+                                      key={i}
+                                      className={`h-2 w-2 rounded-full ${i < skill.levelValue ? 'bg-primary' : 'bg-muted'}`}
+                                    ></span>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <h4 className="font-bold text-md text-foreground">{skill.name}</h4>
+                                <p className="text-xs text-foreground/70">{skill.level}</p>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{skill.name}: {skill.levelValue * 20}%</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </TooltipProvider>
       </section>
 
       <section id="featured-projects" className="animate__animated animate__fadeInUp">
