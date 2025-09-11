@@ -1,13 +1,8 @@
+
 import ContactForm from "@/components/contact-form";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Contact Me | Eka Saputra",
-  description: "Get in touch with Eka Saputra. Have a question or a project in mind? Reach out through the contact form or other channels.",
-};
 
 export default function ContactPage() {
   return (
