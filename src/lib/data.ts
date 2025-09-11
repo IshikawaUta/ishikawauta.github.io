@@ -31,7 +31,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: "PLN Financial Management Portal",
+    title: "Eksa Shop",
     description: "A comprehensive platform for managing electricity bills, payments, and customer financial transactions.",
     technologies: ["React", "Node.js", "MongoDB", "Charts"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754582928/hb5dzf63uhaft4huyukr.jpg",
