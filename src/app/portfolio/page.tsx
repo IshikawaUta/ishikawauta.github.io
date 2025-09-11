@@ -15,7 +15,7 @@ export default function PortfolioPage() {
           My Portfolio
         </h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          Here is a collection of projects I&apos;ve worked on. Each one represents a unique challenge and a learning opportunity.
+          Here is a collection of projects I've worked on. Each one represents a unique challenge and a learning opportunity.
         </p>
       </div>
 
@@ -56,11 +56,13 @@ export default function PortfolioPage() {
                   <Badge key={tech} variant="secondary">{tech}</Badge>
                 ))}
               </div>
-              <Button asChild variant="outline" className="mt-auto w-fit">
-                <Link href="#" target="_blank">
-                  View Project <ExternalLink className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              {project.liveUrl && (
+                <Button asChild variant="outline" className="mt-auto w-fit">
+                  <Link href={project.liveUrl} target="_blank">
+                    View Project <ExternalLink className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              )}
             </CardContent>
           </Card>
         ))}

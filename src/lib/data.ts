@@ -1,4 +1,4 @@
-import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind } from 'lucide-react';
+import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind, ExternalLink } from 'lucide-react';
 
 export type Project = {
   id: number;
@@ -7,6 +7,7 @@ export type Project = {
   technologies: string[];
   imageUrl: string;
   imageHint: string;
+  liveUrl?: string;
 };
 
 export type Skill = {
@@ -25,7 +26,8 @@ export const projectsData: Project[] = [
     description: "Website yang dibuat dengan menggunakan flask sebagai backend dan bootstrap sebagai frontend juga mongodb dan Cloudinary sebagai penyimpanan manajemen konten",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754583125/ldzfch8sknfb5hfaekte.jpg",
-    imageHint: "funding platform"
+    imageHint: "funding platform",
+    liveUrl: "https://www.benartwork07.com/"
   },
   {
     id: 2,

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Briefcase, Code2, MapPin, Award, Users, FolderKanban } from 'lucide-react';
+import { ArrowRight, Briefcase, Code2, MapPin, Award, Users, FolderKanban, ExternalLink } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 import { TypeAnimation } from 'react-type-animation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -195,8 +195,8 @@ export default function Home() {
                 <h3 className="font-headline text-xl mb-2 flex-grow">{project.title}</h3>
                 <p className="text-foreground/80 text-sm mb-4 h-24">{project.description}</p>
                 <Button asChild variant="link" className="p-0 text-primary mt-auto">
-                  <Link href={`/portfolio`}>
-                    View Project <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link href={project.liveUrl || `/portfolio`} target={project.liveUrl ? '_blank' : '_self'}>
+                    View Project {project.liveUrl ? <ExternalLink className="ml-2 h-4 w-4" /> : <ArrowRight className="ml-2 h-4 w-4" />}
                   </Link>
                 </Button>
               </CardContent>
