@@ -80,3 +80,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .btn-slide-effect {
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out;
+    z-index: 1;
+  }
+
+  .btn-slide-effect::before {
+    content: '';
+    @apply absolute top-0 left-0 w-0 h-full bg-primary/80 transition-all duration-300 ease-in-out;
+    z-index: -1;
+  }
+
+  .btn-slide-effect:hover::before {
+    @apply w-full;
+  }
+}
