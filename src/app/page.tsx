@@ -77,17 +77,14 @@ export default function Home() {
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
              {aboutImage && (
-              <div className="relative w-4/5 mx-auto aspect-square rounded-full shadow-lg overflow-hidden group border-4 border-primary p-2">
-                <div className="relative w-full h-full rounded-full overflow-hidden">
-                    <Image
-                      src={aboutImage.imageUrl}
-                      alt={aboutImage.description}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      data-ai-hint={aboutImage.imageHint}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-full"></div>
-                </div>
+              <div className="relative w-full mx-auto aspect-square rounded-lg overflow-hidden">
+                <Image
+                  src={aboutImage.imageUrl}
+                  alt={aboutImage.description}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={aboutImage.imageHint}
+                />
               </div>
             )}
           </div>
