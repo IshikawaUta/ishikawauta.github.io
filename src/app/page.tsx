@@ -14,7 +14,7 @@ export default function Home() {
       <section id="hero" className="bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md">
         <div className="text-center animate__animated animate__fadeIn">
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
-            My Name Robith Yusuf Al Fahsa 👋
+            My Name Eka Saputra 👋
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
             I'm a <span className="text-primary">Web Developer</span>
