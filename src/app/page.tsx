@@ -8,7 +8,6 @@ import { ArrowRight } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 import { Icons } from '@/components/icons';
 import { TypeAnimation } from 'react-type-animation';
-import ParticlesComponent from '@/components/particles';
 
 export default function Home() {
   const featuredProjects = projectsData.slice(0, 3);
@@ -16,7 +15,6 @@ export default function Home() {
   return (
     <div className="space-y-24">
       <section id="hero" className="relative bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden">
-        <ParticlesComponent />
         <div className="text-center relative z-10">
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
             My Name Eka Saputra 👋
