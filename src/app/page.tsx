@@ -1,3 +1,4 @@
+"use client";
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
 import { projectsData, skillsData } from '@/lib/data';
 import { Icons } from '@/components/icons';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Home() {
   const featuredProjects = projectsData.slice(0, 3);
@@ -12,12 +14,26 @@ export default function Home() {
   return (
     <div className="space-y-24">
       <section id="hero" className="bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md">
-        <div className="text-center animate__animated animate__fadeIn">
+        <div className="text-center">
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
             My Name Eka Saputra 👋
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
-            I'm a <span className="text-primary">Web Developer</span>
+            I'm a{' '}
+            <TypeAnimation
+              sequence={[
+                'Web Developer',
+                1000,
+                'System Analyst',
+                1000,
+                'Fullstack Dev',
+                1000,
+              ]}
+              wrapper="span"
+              speed={50}
+              className="text-primary"
+              repeat={Infinity}
+            />
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl mx-auto">
             Based in Tangerang, Indonesia.
