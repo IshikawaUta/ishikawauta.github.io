@@ -22,7 +22,7 @@ export const projectsData: Project[] = [
   {
     id: 1,
     title: "Benartwork",
-    description: "Modern Pooling platform that enables users to create and contribute to various funding campaigns.",
+    description: "Website yang dibuat dengan menggunakan flask sebagai backend dan bootstrap sebagai frontend juga mongodb dan Cloudinary sebagai penyimpanan manajemen konten",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
     imageUrl: "https://res.cloudinary.com/dzsqaauqn/image/upload/v1754583125/ldzfch8sknfb5hfaekte.jpg",
     imageHint: "funding platform"
