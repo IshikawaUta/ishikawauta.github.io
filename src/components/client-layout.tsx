@@ -29,7 +29,7 @@ export default function ClientLayout({
   return (
     <>
       {isClient && isLoading && <Preloader />}
-      <div className={cn({ 'animate__animated animate__fadeIn': !isLoading, 'opacity-0': isLoading })}>
+      <div className={cn('flex flex-col min-h-screen w-full', { 'animate__animated animate__fadeIn': !isLoading, 'opacity-0': isLoading })}>
         <StarCursor />
         <Header />
         <main

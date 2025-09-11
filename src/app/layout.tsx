@@ -1,7 +1,6 @@
 
 import type { Metadata } from "next";
 import './globals.css';
-import { cn } from '@/lib/utils';
 import ClientLayout from "@/components/client-layout";
 
 export const metadata: Metadata = {
@@ -29,7 +28,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         />
       </head>
-      <body className={cn('font-body antialiased min-h-screen flex flex-col')}>
+      <body className={'font-body antialiased min-h-screen flex flex-col'}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
