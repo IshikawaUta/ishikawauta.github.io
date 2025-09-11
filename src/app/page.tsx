@@ -43,7 +43,7 @@ export default function Home() {
             <Button asChild size="lg" className="btn-custom">
                 <Link href="/contact">LET'S START</Link>
             </Button>
-            <Button asChild size="lg" className="btn-custom">
+            <Button asChild size="lg" className="btn-custom-inverted">
                 <Link href="/portfolio">My Portfolio</Link>
             </Button>
           </div>

@@ -104,4 +104,27 @@
     bottom: -3px;
     right: -3px;
   }
+
+  .btn-custom-inverted {
+    @apply relative rounded-none border-2 border-foreground bg-foreground text-background;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-custom-inverted:hover {
+    @apply bg-transparent text-foreground;
+  }
+  .btn-custom-inverted::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: -6px;
+    right: -6px;
+    width: 100%;
+    height: 100%;
+    @apply border-2 border-foreground;
+    transition: all 0.2s ease-in-out;
+  }
+  .btn-custom-inverted:hover::after {
+    bottom: -3px;
+    right: -3px;
+  }
 }
