@@ -83,9 +83,9 @@ export default function Home() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {stats.map(stat => (
-                <div key={stat.label} className="bg-primary/10 p-4 rounded-lg text-center transform transition-transform hover:-translate-y-1">
+                <div key={stat.label} className="bg-primary/10 p-4 rounded-lg text-center group transform transition-transform hover:-translate-y-1">
                   <stat.icon className="w-8 h-8 text-primary mx-auto mb-2"/>
-                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  <p className="text-2xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110">{stat.value}</p>
                   <p className="text-sm text-foreground/80">{stat.label}</p>
                 </div>
               ))}
@@ -147,4 +147,5 @@ export default function Home() {
     
 
     
+
 
