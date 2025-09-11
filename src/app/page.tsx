@@ -167,7 +167,7 @@ export default function Home() {
         <h2 className="text-3xl font-headline text-primary text-center mb-12">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => {
-            const hasEffect = project.id !== 1 && project.id !== 2;
+            const hasEffect = ![1, 2, 3].includes(project.id);
             return (
               <Card key={project.id} className="overflow-hidden group flex flex-col">
                 <div className="overflow-hidden relative h-56">

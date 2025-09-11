@@ -22,7 +22,7 @@ export default function PortfolioPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectsData.map((project) => {
-          const hasEffect = project.id !== 1 && project.id !== 2;
+          const hasEffect = ![1, 2, 3].includes(project.id);
           return (
             <Card key={project.id} className="overflow-hidden group flex flex-col">
               <div className="overflow-hidden relative h-56">
