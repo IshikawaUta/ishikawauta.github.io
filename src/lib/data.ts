@@ -1,4 +1,4 @@
-import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind, ExternalLink } from 'lucide-react';
+import { Award, Users, FolderKanban, Database, Code, Server, GitBranch, Monitor, Wind, ExternalLink, Home, Briefcase, Mail } from 'lucide-react';
 
 export type Project = {
   id: number;
@@ -17,6 +17,12 @@ export type Skill = {
   level: string;
   levelValue: number;
   category: 'Frontend' | 'Backend' | 'Tools';
+};
+
+export type NavLink = {
+  href: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
 };
 
 
@@ -71,9 +77,9 @@ export const skillsData: Skill[] = [
 ];
 
 
-export const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/portfolio", label: "Portfolio" },
-    { href: "/contact", label: "Contact" },
+export const navLinks: NavLink[] = [
+    { href: "/", label: "Home", icon: Home },
+    { href: "/services", label: "Services", icon: Briefcase },
+    { href: "/portfolio", label: "Portfolio", icon: FolderKanban },
+    { href: "/contact", label: "Contact", icon: Mail },
 ];

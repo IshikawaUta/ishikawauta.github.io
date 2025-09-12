@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { navLinks } from "@/lib/data";
+import { navLinks, NavLink as NavLinkType } from "@/lib/data";
 
 export default function Header() {
   const pathname = usePathname();
@@ -39,7 +39,7 @@ export default function Header() {
 
         <nav className="hidden gap-6 md:flex items-center">
           {navLinks.map((link) => (
-            <NavLink key={link.href} {...link} />
+            <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
           <Button asChild className="btn-shine-effect">
             <Link href="/contact">LET'S START</Link>

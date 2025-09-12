@@ -10,6 +10,7 @@ import { Toaster } from '@/components/ui/toaster';
 import StarCursor from '@/components/star-cursor';
 import Preloader from '@/components/preloader';
 import NextTopLoader from '@/components/next-top-loader';
+import MobileNav from '@/components/mobile-nav';
 
 
 export default function RootLayout({
@@ -60,6 +61,7 @@ export default function RootLayout({
                 </main>
                 <Footer />
                 <Toaster />
+                <MobileNav />
             </div>
         </>
       </body>
