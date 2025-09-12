@@ -28,7 +28,9 @@ const NextTopLoader = () => {
 
   return (
     <div id="nprogress">
-      <div className="bar" />
+      <div className="bar">
+        <div className="peg"></div>
+      </div>
     </div>
   );
 };
