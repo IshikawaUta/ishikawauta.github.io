@@ -60,3 +60,27 @@ Buka [http://localhost:9002](http://localhost:9002) di browser Anda untuk meliha
 - `npm run build`: Mem-build aplikasi untuk production.
 - `npm run start`: Menjalankan aplikasi yang sudah di-build.
 - `npm run lint`: Menjalankan ESLint untuk memeriksa masalah pada kode.
+
+## 🚀 Deploy ke Vercel
+
+Cara termudah untuk men-deploy aplikasi Next.js Anda adalah dengan menggunakan [Platform Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dari para pembuat Next.js.
+
+Ikuti langkah-langkah berikut untuk melakukan deployment:
+
+1.  **Push Kode ke Repositori Git:**
+    Pastikan kode proyek Anda sudah di-push ke repositori Git (misalnya, GitHub, GitLab, atau Bitbucket).
+
+2.  **Impor Proyek di Vercel:**
+    - Buka [Vercel](https://vercel.com) dan daftar atau masuk dengan akun Git Anda.
+    - Klik tombol "**Add New...**" -> "**Project**".
+    - Pilih repositori Git proyek Anda dan klik "**Import**".
+
+3.  **Konfigurasi Proyek:**
+    - Vercel akan secara otomatis mendeteksi bahwa ini adalah proyek Next.js dan mengatur konfigurasi build secara default. Anda biasanya tidak perlu mengubah apa pun.
+    - Jika Anda memiliki variabel lingkungan (environment variables) di file `.env.local`, pastikan untuk menambahkannya di bagian "**Environment Variables**" pada pengaturan proyek di Vercel.
+
+4.  **Deploy:**
+    - Klik tombol "**Deploy**".
+    - Vercel akan memulai proses build dan deployment. Setelah selesai, Anda akan mendapatkan URL publik untuk situs Anda.
+
+Setiap kali Anda melakukan `push` ke branch utama repositori Anda, Vercel akan secara otomatis men-deploy ulang perubahan tersebut.
