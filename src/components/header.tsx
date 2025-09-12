@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { navLinks, NavLink as NavLinkType } from "@/lib/data";
+import { ThemeToggle } from "./theme-toggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -41,12 +42,14 @@ export default function Header() {
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
+          <ThemeToggle />
           <Button asChild className="btn-shine-effect">
             <Link href="/contact">LET'S START</Link>
           </Button>
         </nav>
 
         <div className="flex items-center md:hidden">
+         <ThemeToggle />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button

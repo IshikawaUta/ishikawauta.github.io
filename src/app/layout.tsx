@@ -11,6 +11,7 @@ import StarCursor from '@/components/star-cursor';
 import Preloader from '@/components/preloader';
 import NextTopLoader from '@/components/next-top-loader';
 import MobileNav from '@/components/mobile-nav';
+import { ThemeProvider } from '@/components/theme-provider';
 
 
 export default function RootLayout({
@@ -31,7 +32,7 @@ export default function RootLayout({
     }, []);
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <title>Eka Saputra | Full Stack Developer</title>
         <meta name="description" content="Portfolio of Eka Saputra, a passionate Full Stack Developer building modern web applications." />
@@ -48,7 +49,12 @@ export default function RootLayout({
         />
       </head>
       <body className={'font-body antialiased min-h-screen flex flex-col'}>
-        <>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+        >
             <NextTopLoader />
             {isClient && isLoading && <Preloader />}
             <div className={cn('flex flex-col min-h-screen w-full', { 'animate__animated animate__fadeIn': !isLoading, 'opacity-0': isLoading })}>
@@ -63,7 +69,7 @@ export default function RootLayout({
                 <Toaster />
                 <MobileNav />
             </div>
-        </>
+        </ThemeProvider>
       </body>
     </html>
   );

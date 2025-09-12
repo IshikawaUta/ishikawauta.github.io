@@ -104,7 +104,7 @@ export default function Home() {
             </p>
             <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {stats.map(stat => (
-                <div key={stat.label} className="bg-primary/10 p-4 rounded-lg text-center group transform transition-transform hover:-translate-y-1">
+                <div key={stat.label} className="bg-muted p-4 rounded-lg text-center group transform transition-transform hover:-translate-y-1">
                   <stat.icon className="w-8 h-8 text-primary mx-auto mb-2"/>
                   <p className="text-2xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-110">
                     {statsInView && <CountUp end={stat.value} duration={2.5} />}
@@ -136,7 +136,7 @@ export default function Home() {
                     .map((skill) => (
                       <Tooltip key={`${category}-${skill.name}`}>
                         <TooltipTrigger asChild>
-                          <Card className="bg-card/80 border-t-4 border-t-primary shadow-sm hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300">
+                          <Card className="bg-card border-t-4 border-t-primary shadow-sm hover:shadow-primary/20 hover:-translate-y-1 transition-all duration-300">
                             <CardContent className="p-4">
                               <div className="flex justify-between items-start mb-4">
                                 <skill.icon className="w-8 h-8 text-primary" />

@@ -65,7 +65,7 @@ export default function ServicesPage() {
 
       <div ref={servicesRef} className={cn("grid md:grid-cols-2 lg:grid-cols-3 gap-8", servicesInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         {services.map((service, index) => (
-          <Card key={index} className="bg-card/80 flex flex-col p-6 rounded-xl shadow-sm hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300">
+          <Card key={index} className="flex flex-col p-6 rounded-xl shadow-sm hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300">
             <CardHeader className="items-start p-0 mb-4">
                <div className="bg-primary/10 p-3 rounded-lg mb-4">
                 <service.icon className="w-8 h-8 text-primary" />
