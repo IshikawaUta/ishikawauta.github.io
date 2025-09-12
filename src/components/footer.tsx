@@ -5,7 +5,7 @@ import { navLinks } from "@/lib/data";
 
 const socialLinks = [
   {
-    href: "https://github.com",
+    href: "https://github.com/IshikawaUta",
     icon: Github,
     label: "GitHub",
   },
