@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <div className="space-y-24">
-      <section ref={heroRef} id="hero" className={cn("relative bg-muted -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden", heroInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
+      <section ref={heroRef} id="hero" className={cn("relative bg-primary/10 -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden", heroInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <div className="text-center relative z-10">
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
             My Name Eka Saputra 👋
