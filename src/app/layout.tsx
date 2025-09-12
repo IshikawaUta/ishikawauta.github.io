@@ -2,6 +2,7 @@
 'use client';
 
 import './globals.css';
+import './i18n';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import Header from '@/components/header';
@@ -12,6 +13,8 @@ import Preloader from '@/components/preloader';
 import NextTopLoader from '@/components/next-top-loader';
 import MobileNav from '@/components/mobile-nav';
 import { ThemeProvider } from '@/components/theme-provider';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
 
 
 export default function RootLayout({
@@ -33,7 +36,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
+       <head>
         <title>Eka Saputra | Full Stack Developer</title>
         <meta name="description" content="Portfolio of Eka Saputra, a passionate Full Stack Developer building modern web applications." />
         <meta name="keywords" content="Eka Saputra, Full Stack Developer, React, Next.js, Portfolio" />
@@ -49,6 +52,7 @@ export default function RootLayout({
         />
       </head>
       <body className={'font-body antialiased min-h-screen flex flex-col'}>
+       <I18nextProvider i18n={i18n}>
         <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -70,6 +74,7 @@ export default function RootLayout({
                 <MobileNav />
             </div>
         </ThemeProvider>
+        </I18nextProvider>
       </body>
     </html>
   );
