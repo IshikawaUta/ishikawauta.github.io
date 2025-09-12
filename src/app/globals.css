@@ -192,9 +192,6 @@
   .top    { transform: rotateX(90deg) translateZ(37.5px); }
   .bottom { transform: rotateX(-90deg) translateZ(37.5px); }
   
-  .animate-text-color-change {
-    animation: text-color-change 4s linear infinite;
-  }
 
   @keyframes cube-spin {
     from {
@@ -202,15 +199,6 @@
     }
     to {
       transform: rotateX(360deg) rotateY(360deg);
-    }
-  }
-
-  @keyframes text-color-change {
-    0%, 100% {
-      color: hsl(var(--primary));
-    }
-    50% {
-      color: hsl(var(--foreground));
     }
   }
     
