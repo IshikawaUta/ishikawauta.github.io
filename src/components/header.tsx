@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { cn } from "@/lib/utils";
 import { navLinks, NavLink as NavLinkType } from "@/lib/data";
 import { ThemeToggle } from "./theme-toggle";
+import { LanguageSwitcher } from "./language-switcher";
 
 export default function Header() {
   const pathname = usePathname();
@@ -38,17 +39,19 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden gap-6 md:flex items-center">
+        <nav className="hidden gap-4 md:flex items-center">
           {navLinks.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
+          <LanguageSwitcher />
           <ThemeToggle />
           <Button asChild className="btn-shine-effect">
             <Link href="/contact">LET'S START</Link>
           </Button>
         </nav>
 
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center md:hidden gap-2">
+         <LanguageSwitcher />
          <ThemeToggle />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
