@@ -3,7 +3,7 @@
 
 import './globals.css';
 import './i18n';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
@@ -59,7 +59,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
         >
-            <NextTopLoader />
+            <Suspense fallback={null}>
+              <NextTopLoader />
+            </Suspense>
             {isClient && isLoading && <Preloader />}
             <div className={cn('flex flex-col min-h-screen w-full', { 'animate__animated animate__fadeIn': !isLoading, 'opacity-0': isLoading })}>
                 <StarCursor />

@@ -36,7 +36,6 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  devSwcMinify: true,
 };
 
 export default nextConfig;
