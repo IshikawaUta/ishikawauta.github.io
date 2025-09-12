@@ -5,14 +5,18 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navLinks } from '@/lib/data';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 export default function MobileNav() {
   const pathname = usePathname();
+  const { t } = useTranslation();
+
+  const translatedNavLinks = navLinks.map(link => ({...link, label: t(link.label.toLowerCase())}));
 
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-background border-t border-border/40 shadow-[0_-2px_10px_-3px_rgba(0,0,0,0.1)] z-50">
       <div className="flex justify-around items-center h-full">
-        {navLinks.map(({ href, label, icon: Icon }) => {
+        {translatedNavLinks.map(({ href, label, icon: Icon }) => {
           const isActive = pathname === href;
           return (
             <Link

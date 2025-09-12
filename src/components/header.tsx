@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -10,8 +11,10 @@ import { cn } from "@/lib/utils";
 import { navLinks, NavLink as NavLinkType } from "@/lib/data";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
+  const { t } = useTranslation();
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -28,6 +31,8 @@ export default function Header() {
     </Link>
   );
 
+  const translatedNavLinks = navLinks.map(link => ({...link, label: t(link.label.toLowerCase())}));
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
@@ -40,13 +45,13 @@ export default function Header() {
         </div>
 
         <nav className="hidden gap-4 md:flex items-center">
-          {navLinks.map((link) => (
+          {translatedNavLinks.map((link) => (
             <NavLink key={link.href} href={link.href} label={link.label} />
           ))}
           <LanguageSwitcher />
           <ThemeToggle />
           <Button asChild className="btn-shine-effect">
-            <Link href="/contact">LET'S START</Link>
+            <Link href="/contact">{t('lets_start')}</Link>
           </Button>
         </nav>
 
@@ -72,7 +77,7 @@ export default function Header() {
               </SheetHeader>
               <div className="flex flex-col h-full">
                 <nav className="flex flex-col gap-4 mt-8">
-                  {navLinks.map((link) => (
+                  {translatedNavLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
@@ -86,7 +91,7 @@ export default function Header() {
                     </Link>
                   ))}
                    <Button asChild className="mt-4 btn-shine-effect">
-                    <Link href="/contact">LET'S START</Link>
+                    <Link href="/contact">{t('lets_start')}</Link>
                   </Button>
                 </nav>
               </div>

@@ -18,15 +18,17 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from '@/lib/utils';
+import { useTranslation, Trans } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
   const featuredProjects = projectsData.slice(0, 3);
   const aboutImage = PlaceHolderImages.find(img => img.id === 'about-me');
 
   const stats = [
-    { value: 4, suffix: "+", label: "Years of Experience", icon: Award },
-    { value: 15, suffix: "+", label: "Happy Clients", icon: Users },
-    { value: 20, suffix: "+", label: "Projects Completed", icon: FolderKanban },
+    { value: 4, suffix: "+", label: t('years_experience'), icon: Award },
+    { value: 15, suffix: "+", label: t('happy_clients'), icon: Users },
+    { value: 20, suffix: "+", label: t('projects_completed'), icon: FolderKanban },
   ];
 
   const { ref: statsRef, inView: statsInView } = useInView({
@@ -46,17 +48,17 @@ export default function Home() {
       <section ref={heroRef} id="hero" className={cn("relative bg-primary/10 -mx-4 -mt-8 sm:-mx-6 sm:-mt-12 lg:-mx-8 p-8 sm:p-12 lg:p-16 rounded-b-2xl shadow-md overflow-hidden", heroInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <div className="text-center relative z-10">
           <p className="text-lg md:text-xl text-foreground/80 mb-2">
-            My Name Eka Saputra 👋
+            {t('my_name')}
           </p>
           <h1 className="text-4xl md:text-7xl font-extrabold text-foreground mb-4 leading-tight">
-            I'm a{' '}
+            {t('i_am_a')}{' '}
             <TypeAnimation
               sequence={[
-                'Web Developer',
+                t('web_developer'),
                 1000,
-                'System Analyst',
+                t('system_analyst'),
                 1000,
-                'Fullstack Dev',
+                t('fullstack_dev'),
                 1000,
               ]}
               wrapper="span"
@@ -66,14 +68,14 @@ export default function Home() {
             />
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl mx-auto">
-            Based in Tangerang, Indonesia.
+            {t('based_in')}
           </p>
           <div className="flex gap-4 justify-center">
             <Button asChild size="lg" className="btn-shine-effect">
-                <Link href="/contact">LET'S START</Link>
+                <Link href="/contact">{t('lets_start')}</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="btn-shine-effect btn-outline-primary">
-                <Link href="/portfolio">My Portfolio</Link>
+                <Link href="/portfolio">{t('my_portfolio')}</Link>
             </Button>
           </div>
         </div>
@@ -98,9 +100,11 @@ export default function Home() {
             )}
           </div>
           <div className="md:col-span-3">
-            <h2 className="text-3xl font-headline text-primary mb-4">About Me</h2>
+            <h2 className="text-3xl font-headline text-primary mb-4">{t('about_me')}</h2>
             <p className="text-foreground/80 mb-6 leading-relaxed">
-              A passionate web developer focused on creating elegant and efficient digital solutions. I specialize in <span className="font-semibold text-primary">full-stack development</span> with expertise in modern web technologies and frameworks, always aiming to build intuitive and high-performance applications.
+              <Trans i18nKey="about_me_desc">
+                A passionate web developer focused on creating elegant and efficient digital solutions. I specialize in <span className="font-semibold text-primary">full-stack development</span> with expertise in modern web technologies and frameworks, always aiming to build intuitive and high-performance applications.
+              </Trans>
             </p>
             <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               {stats.map(stat => (
@@ -116,7 +120,7 @@ export default function Home() {
             </div>
              <Button asChild size="lg" variant="link" className="p-0 text-primary">
                   <Link href="/contact">
-                    Let's work together <ArrowRight className="ml-2 h-4 w-4" />
+                    {t('lets_work_together')} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
           </div>
@@ -124,7 +128,7 @@ export default function Home() {
       </section>
 
       <section ref={skillsRef} id="skills" className={cn(skillsInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
-        <h2 className="text-3xl font-headline text-primary text-center mb-12">My Skills</h2>
+        <h2 className="text-3xl font-headline text-primary text-center mb-12">{t('my_skills')}</h2>
         <TooltipProvider>
           <div className="space-y-10">
             {skillCategories.map((category) => (
@@ -169,7 +173,7 @@ export default function Home() {
       </section>
 
       <section ref={projectsRef} id="featured-projects" className={cn(projectsInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
-        <h2 className="text-3xl font-headline text-primary text-center mb-12">Featured Projects</h2>
+        <h2 className="text-3xl font-headline text-primary text-center mb-12">{t('featured_projects')}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => {
             const hasEffect = ![1, 2, 3].includes(project.id);
@@ -195,7 +199,7 @@ export default function Home() {
                   <p className="text-foreground/80 text-sm mb-4 h-24">{project.description}</p>
                   <Button asChild variant="link" className="p-0 text-primary mt-auto">
                     <Link href={project.liveUrl || `/portfolio`} target={project.liveUrl ? '_blank' : '_self'}>
-                      View Project {project.liveUrl ? <ExternalLink className="ml-2 h-4 w-4" /> : <ArrowRight className="ml-2 h-4 w-4" />}
+                      {t('view_project')} {project.liveUrl ? <ExternalLink className="ml-2 h-4 w-4" /> : <ArrowRight className="ml-2 h-4 w-4" />}
                     </Link>
                   </Button>
                 </CardContent>
@@ -205,7 +209,7 @@ export default function Home() {
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg" variant="outline" className="btn-shine-effect btn-outline-primary">
-                <Link href="/portfolio">VIEW ALL PROJECTS</Link>
+                <Link href="/portfolio">{t('view_all_projects')}</Link>
             </Button>
         </div>
       </section>

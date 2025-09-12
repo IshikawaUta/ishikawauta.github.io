@@ -1,7 +1,9 @@
+
 import Link from "next/link";
 import { Github, Linkedin, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { navLinks } from "@/lib/data";
+import { useTranslation } from "react-i18next";
 
 const socialLinks = [
   {
@@ -21,9 +23,12 @@ const socialLinks = [
   },
 ];
 
-const quickLinks = navLinks.filter(link => link.href !== '/');
+const quickLinksRaw = navLinks.filter(link => link.href !== '/');
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const quickLinks = quickLinksRaw.map(link => ({...link, label: t(link.label.toLowerCase())}));
+
   return (
     <footer className="bg-card text-foreground/80 border-t pb-24 md:pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -32,7 +37,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold text-foreground mb-4">Eka Saputra</h3>
             <p className="mb-4">
-              Web Developer based in Indonesia. Specializing in creating beautiful and functional websites.
+              {t('footer_about')}
             </p>
             <div className="flex items-center space-x-2">
               {socialLinks.map(({ href, icon: Icon, label }) => (
@@ -47,7 +52,7 @@ export default function Footer() {
 
           {/* Quick Links Section */}
           <div>
-            <h3 className="text-lg font-bold text-foreground mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold text-foreground mb-4">{t('quick_links')}</h3>
             <ul className="space-y-2">
               {quickLinks.map(link => (
                  <li key={link.href}>
@@ -61,7 +66,7 @@ export default function Footer() {
 
           {/* Contact Info Section */}
           <div>
-            <h3 className="text-lg font-bold text-foreground mb-4">Contact Info</h3>
+            <h3 className="text-lg font-bold text-foreground mb-4">{t('contact_info')}</h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-primary" />
@@ -83,7 +88,7 @@ export default function Footer() {
 
         <div className="border-t border-border/50 pt-6 text-center">
           <p className="text-sm text-foreground/60">
-            © {new Date().getFullYear()} Eka Saputra. All Rights Reserved.
+            © {new Date().getFullYear()} Eka Saputra. {t('rights_reserved')}
           </p>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +27,7 @@ const formSchema = SendEmailInputSchema;
 
 export default function ContactForm() {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -44,8 +46,8 @@ export default function ContactForm() {
 
       if (result.success) {
         toast({
-          title: "Message Sent!",
-          description: "Thank you for your message! I will get back to you as soon as possible.",
+          title: t('message_sent'),
+          description: t('message_sent_desc'),
         });
         form.reset();
       } else {
@@ -54,8 +56,8 @@ export default function ContactForm() {
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem sending your message. Please try again.",
+        title: t('error_title'),
+        description: t('error_desc'),
       });
     } finally {
       setIsLoading(false);
@@ -70,9 +72,9 @@ export default function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t('name')}</FormLabel>
               <FormControl>
-                <Input placeholder="Your Name" {...field} disabled={isLoading} />
+                <Input placeholder={t('your_name')} {...field} disabled={isLoading} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,9 +85,9 @@ export default function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('email')}</FormLabel>
               <FormControl>
-                <Input placeholder="your.email@example.com" {...field} disabled={isLoading} />
+                <Input placeholder={t('your_email')} {...field} disabled={isLoading} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -96,9 +98,9 @@ export default function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t('message')}</FormLabel>
               <FormControl>
-                <Textarea placeholder="Your message..." rows={6} {...field} disabled={isLoading} />
+                <Textarea placeholder={t('your_message')} rows={6} {...field} disabled={isLoading} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -108,11 +110,11 @@ export default function ContactForm() {
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
+              {t('sending')}
             </>
           ) : (
             <>
-              Send Message <Send className="ml-2 h-4 w-4" />
+              {t('send_message')} <Send className="ml-2 h-4 w-4" />
             </>
           )}
         </Button>

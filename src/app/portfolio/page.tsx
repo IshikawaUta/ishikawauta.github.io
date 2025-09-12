@@ -10,10 +10,12 @@ import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 type Category = "All" | "Web" | "Mobile" | "Design";
 
 export default function PortfolioPage() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState<Category>("All");
 
   const categories: Category[] = ["All", "Web", "Mobile", "Design"];
@@ -27,10 +29,10 @@ export default function PortfolioPage() {
     <div className="space-y-12">
       <div className="text-center">
         <h1 className="text-4xl md:text-5xl font-headline text-primary mb-4">
-          My Portfolio
+          {t('my_portfolio_title')}
         </h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          Here is a collection of projects I've worked on. Each one represents a unique challenge and a learning opportunity.
+          {t('my_portfolio_desc')}
         </p>
       </div>
 
@@ -42,7 +44,7 @@ export default function PortfolioPage() {
             onClick={() => setFilter(category)}
             className="rounded-full transition-all"
           >
-            {category}
+            {t(category.toLowerCase())}
           </Button>
         ))}
       </div>
@@ -81,7 +83,7 @@ export default function PortfolioPage() {
                   {project.liveUrl && (
                     <Button asChild variant="outline" className="mt-auto w-fit">
                       <Link href={project.liveUrl} target="_blank">
-                        View Project <ExternalLink className="ml-2 h-4 w-4" />
+                        {t('view_project')} <ExternalLink className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                   )}

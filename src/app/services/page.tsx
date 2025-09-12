@@ -7,59 +7,60 @@ import { Check, Code2, MessageCircle, Paintbrush, CloudUpload } from "lucide-rea
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
-
-const services = [
-  {
-    icon: Code2,
-    title: "Web Development",
-    description: "Custom websites tailored to your needs using the latest technologies and best practices.",
-    features: [
-      "Responsive Design",
-      "Front-end Development",
-      "Back-end Development",
-      "API Integration",
-    ],
-  },
-  {
-    icon: Paintbrush,
-    title: "UI/UX Design",
-    description: "Creating beautiful and user-friendly interfaces that enhance the user experience.",
-    features: [
-      "User Research",
-      "Wireframing",
-      "Prototyping",
-      "Visual Design",
-    ],
-  },
-  {
-    icon: CloudUpload,
-    title: "Deployment & DevOps",
-    description: "Helps the process of deploying web applications to the server easily and securely.",
-    features: [
-      "Hosting Setup",
-      "Domain Configuration",
-      "SSL Installation",
-      "Basic Server Maintenance",
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function ServicesPage() {
+  const { t } = useTranslation();
   const whatsappLink = "https://wa.me/62895701060973?text=Hello%2C%20I'm%20interested%20in%20your%20web%20development%20services.";
 
   const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: servicesRef, inView: servicesInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: ctaRef, inView: ctaInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  const services = [
+    {
+      icon: Code2,
+      title: t('web_development'),
+      description: t('web_development_desc'),
+      features: [
+        t('responsive_design'),
+        t('frontend_dev'),
+        t('backend_dev'),
+        t('api_integration'),
+      ],
+    },
+    {
+      icon: Paintbrush,
+      title: t('ui_ux_design'),
+      description: t('ui_ux_design_desc'),
+      features: [
+        t('user_research'),
+        t('wireframing'),
+        t('prototyping'),
+        t('visual_design'),
+      ],
+    },
+    {
+      icon: CloudUpload,
+      title: t('deployment_devops'),
+      description: t('deployment_devops_desc'),
+      features: [
+        t('hosting_setup'),
+        t('domain_config'),
+        t('ssl_install'),
+        t('server_maintenance'),
+      ],
+    },
+  ];
 
   return (
     <div className="space-y-16">
       <div ref={heroRef} className={cn("text-center", heroInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <h1 className="text-4xl md:text-5xl font-headline text-primary mb-4">
-          My Services
+          {t('my_services')}
         </h1>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          I offer a wide range of web development and design services to help bring your ideas to life.
+          {t('my_services_desc')}
         </p>
       </div>
 
@@ -89,14 +90,14 @@ export default function ServicesPage() {
 
       <div ref={ctaRef} className={cn("text-center bg-card p-8 rounded-lg shadow-lg", ctaInView ? "animate__animated animate__fadeInUp" : "opacity-0")}>
         <h2 className="text-3xl font-headline text-primary mb-4">
-          Have a project in mind?
+          {t('have_project')}
         </h2>
         <p className="text-lg text-foreground/80 mb-6">
-          Let&apos;s discuss your requirements and how I can help you achieve your goals.
+          {t('have_project_desc')}
         </p>
         <Button asChild size="lg" className="btn-shine-effect">
           <Link href={whatsappLink} target="_blank">
-            Contact Me on WhatsApp <MessageCircle className="ml-2" />
+            {t('contact_whatsapp')} <MessageCircle className="ml-2" />
           </Link>
         </Button>
       </div>

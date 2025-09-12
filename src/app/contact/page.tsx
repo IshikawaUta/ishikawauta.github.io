@@ -1,10 +1,15 @@
 
+"use client";
+
 import ContactForm from "@/components/contact-form";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function ContactPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex items-center justify-center p-4">
       <Card className="w-full max-w-6xl grid md:grid-cols-2 shadow-2xl overflow-hidden rounded-2xl">
@@ -23,10 +28,10 @@ export default function ContactPage() {
           
           <div className="relative z-10">
             <h1 className="text-4xl font-headline font-bold mb-4">
-              Get In Touch
+              {t('get_in_touch')}
             </h1>
             <p className="text-primary-foreground/90 max-w-md">
-              Have a question or a project in mind? I&apos;d love to hear from you. Fill out the form or reach out through my other channels.
+              {t('get_in_touch_desc')}
             </p>
           </div>
 
@@ -48,7 +53,7 @@ export default function ContactPage() {
 
         {/* Right Side with Form */}
         <div className="p-8 md:p-12 bg-background">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Send a Message</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">{t('send_a_message')}</h2>
             <ContactForm />
         </div>
       </Card>
