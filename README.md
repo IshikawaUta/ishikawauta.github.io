@@ -1,86 +1,88 @@
-# Portofolio Pribadi - Eka Saputra
+# Personal Portfolio - Eka Saputra
 
-Ini adalah kode sumber untuk situs web portofolio pribadi saya, yang dibuat dengan teknologi web modern. Situs web ini menampilkan proyek-proyek saya, keahlian, dan menyediakan cara bagi pengunjung untuk menghubungi saya.
+This is the source code for my personal portfolio website, built with modern web technologies. This site showcases my projects, skills, and provides a way for visitors to contact me.
 
-## ✨ Fitur
+## ✨ Features
 
-- **Desain Responsif:** Tampilan yang optimal di semua perangkat, dari desktop hingga mobile.
-- **Animasi Modern:** Efek animasi yang halus untuk meningkatkan pengalaman pengguna.
-- **Navigasi Intuitif:** Termasuk navigasi bawah untuk kemudahan penggunaan di perangkat mobile.
-- **Halaman Dinamis:** Halaman portofolio dengan filter kategori dan halaman layanan.
-- **Formulir Kontak Fungsional:** Formulir kontak yang terintegrasi dengan Genkit untuk memproses pengiriman.
-- **SEO-Friendly:** Dibuat dengan `sitemap.xml` dan `robots.txt` untuk visibilitas yang lebih baik di mesin pencari.
-- **Kustomisasi Tema:** Skema warna terang dan gelap yang konsisten menggunakan variabel CSS.
+- **Responsive Design:** Optimal viewing experience across all devices, from desktops to mobiles.
+- **Modern Animations:** Smooth animation effects to enhance user experience.
+- **Intuitive Navigation:** Includes bottom navigation for ease of use on mobile devices.
+- **Dynamic Pages:** Portfolio page with category filters and a dedicated services page.
+- **Functional Contact Form:** A contact form integrated with Genkit to process submissions.
+- **SEO-Friendly:** Built with `sitemap.xml` and `robots.txt` for better search engine visibility.
+- **Theme Customization:** Consistent light and dark color schemes using CSS variables.
+- **Multi-language Support:** Supports both English and Indonesian.
 
-## 🚀 Teknologi yang Digunakan
+## 🚀 Technologies Used
 
-- **Framework:** [Next.js](https://nextjs.org/) (dengan App Router)
-- **Bahasa:** [TypeScript](https://www.typescriptlang.org/)
+- **Framework:** [Next.js](https://nextjs.org/) (with App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Komponen UI:** [ShadCN UI](https://ui.shadcn.com/)
-- **Fungsionalitas AI:** [Firebase Genkit](https://firebase.google.com/docs/genkit)
-- **Ikon:** [Lucide React](https://lucide.dev/)
+- **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
+- **AI Functionality:** [Firebase Genkit](https://firebase.google.com/docs/genkit)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Internationalization:** [i18next](https://www.i18next.com/)
 
-## 🏁 Memulai
+## 🏁 Getting Started
 
-Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
+To run this project locally, follow these steps:
 
-### Prasyarat
+### Prerequisites
 
-Pastikan Anda telah menginstal [Node.js](https://nodejs.org/) (versi 18 atau lebih baru) dan npm.
+Make sure you have [Node.js](https://nodejs.org/) (version 18 or newer) and npm installed.
 
-### Instalasi
+### Installation
 
-1.  Clone repositori ini:
+1.  Clone this repository:
     ```bash
     git clone https://github.com/IshikawaUta/my-portfolio.git
     ```
-2.  Masuk ke direktori proyek:
+2.  Navigate to the project directory:
     ```bash
     cd my-portfolio
     ```
-3.  Instal semua dependensi:
+3.  Install all dependencies:
     ```bash
     npm install
     ```
 
-### Menjalankan Server Pengembangan
+### Running the Development Server
 
-Untuk memulai server pengembangan Next.js, jalankan perintah berikut:
+To start the Next.js development server, run the following command:
 
 ```bash
 npm run dev
 ```
 
-Buka [http://localhost:9002](http://localhost:9002) di browser Anda untuk melihat hasilnya.
+Open [http://localhost:9002](http://localhost:9002) in your browser to see the result.
 
-## 📜 Skrip yang Tersedia
+## 📜 Available Scripts
 
-- `npm run dev`: Memulai server pengembangan Next.js dengan Turbopack.
-- `npm run build`: Mem-build aplikasi untuk production.
-- `npm run start`: Menjalankan aplikasi yang sudah di-build.
-- `npm run lint`: Menjalankan ESLint untuk memeriksa masalah pada kode.
+- `npm run dev`: Starts the Next.js development server with Turbopack.
+- `npm run build`: Builds the application for production.
+- `npm run start`: Runs the production-built application.
+- `npm run lint`: Runs ESLint to check for code issues.
 
-## 🚀 Deploy ke Vercel
+## 🚀 Deploy to Vercel
 
-Cara termudah untuk men-deploy aplikasi Next.js Anda adalah dengan menggunakan [Platform Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) dari para pembuat Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Ikuti langkah-langkah berikut untuk melakukan deployment:
+Follow these steps to deploy:
 
-1.  **Push Kode ke Repositori Git:**
-    Pastikan kode proyek Anda sudah di-push ke repositori Git (misalnya, GitHub, GitLab, atau Bitbucket).
+1.  **Push Code to a Git Repository:**
+    Ensure your project's code is pushed to a Git repository (e.g., GitHub, GitLab, or Bitbucket).
 
-2.  **Impor Proyek di Vercel:**
-    - Buka [Vercel](https://vercel.com) dan daftar atau masuk dengan akun Git Anda.
-    - Klik tombol "**Add New...**" -> "**Project**".
-    - Pilih repositori Git proyek Anda dan klik "**Import**".
+2.  **Import Project in Vercel:**
+    - Go to [Vercel](https://vercel.com) and sign up or log in with your Git account.
+    - Click the "**Add New...**" -> "**Project**" button.
+    - Select your project's Git repository and click "**Import**".
 
-3.  **Konfigurasi Proyek:**
-    - Vercel akan secara otomatis mendeteksi bahwa ini adalah proyek Next.js dan mengatur konfigurasi build secara default. Anda biasanya tidak perlu mengubah apa pun.
-    - Jika Anda memiliki variabel lingkungan (environment variables) di file `.env.local`, pastikan untuk menambahkannya di bagian "**Environment Variables**" pada pengaturan proyek di Vercel.
+3.  **Configure Project:**
+    - Vercel will automatically detect that this is a Next.js project and set up the default build configurations. You usually don't need to change anything.
+    - If you have environment variables in your `.env.local` file, make sure to add them in the "**Environment Variables**" section of the project settings on Vercel.
 
 4.  **Deploy:**
-    - Klik tombol "**Deploy**".
-    - Vercel akan memulai proses build dan deployment. Setelah selesai, Anda akan mendapatkan URL publik untuk situs Anda.
+    - Click the "**Deploy**" button.
+    - Vercel will start the build and deployment process. Once completed, you will get a public URL for your site.
 
-Setiap kali Anda melakukan `push` ke branch utama repositori Anda, Vercel akan secara otomatis men-deploy ulang perubahan tersebut.
+Every time you `push` to your main branch, Vercel will automatically redeploy the changes.
