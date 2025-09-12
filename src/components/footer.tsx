@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import { Github, Linkedin, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { navLinks } from "@/lib/data";
 
@@ -15,9 +15,9 @@ const socialLinks = [
     label: "LinkedIn",
   },
   {
-    href: "https://twitter.com",
-    icon: Twitter,
-    label: "Twitter",
+    href: "https://wa.me/62895701060973",
+    icon: MessageCircle,
+    label: "WhatsApp",
   },
 ];
 
