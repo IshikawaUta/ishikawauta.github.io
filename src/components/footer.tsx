@@ -10,7 +10,7 @@ const socialLinks = [
     label: "GitHub",
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/ishikawa-uta",
     icon: Linkedin,
     label: "LinkedIn",
   },
