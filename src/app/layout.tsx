@@ -1,7 +1,6 @@
 
 'use client';
 
-import type { Metadata } from "next";
 import './globals.css';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -10,6 +9,7 @@ import Footer from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import StarCursor from '@/components/star-cursor';
 import Preloader from '@/components/preloader';
+import NextTopLoader from '@/components/next-top-loader';
 
 
 export default function RootLayout({
@@ -48,6 +48,7 @@ export default function RootLayout({
       </head>
       <body className={'font-body antialiased min-h-screen flex flex-col'}>
         <>
+            <NextTopLoader />
             {isClient && isLoading && <Preloader />}
             <div className={cn('flex flex-col min-h-screen w-full', { 'animate__animated animate__fadeIn': !isLoading, 'opacity-0': isLoading })}>
                 <StarCursor />
