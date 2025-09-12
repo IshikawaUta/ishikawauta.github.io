@@ -18,7 +18,7 @@ const Preloader = () => {
           sequence={['Welcome...', 1000]}
           wrapper="span"
           speed={50}
-          className="text-2xl font-semibold text-primary"
+          className="text-2xl font-semibold text-primary animate-text-color-change"
           repeat={Infinity}
         />
       </div>
