@@ -94,7 +94,7 @@ export default function ServicesPage() {
         <p className="text-lg text-foreground/80 mb-6">
           Let&apos;s discuss your requirements and how I can help you achieve your goals.
         </p>
-        <Button asChild size="lg">
+        <Button asChild size="lg" className="btn-shine-effect">
           <Link href={whatsappLink} target="_blank">
             Contact Me on WhatsApp <MessageCircle className="ml-2" />
           </Link>
