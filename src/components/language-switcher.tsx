@@ -10,11 +10,10 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
-import Image from 'next/image';
 
 const languages = [
-  { code: 'en', name: 'English', flag: '/flags/gb.svg' },
-  { code: 'id', name: 'Indonesia', flag: '/flags/id.svg' },
+  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'id', name: 'Indonesia', flag: '🇮🇩' },
 ];
 
 export function LanguageSwitcher() {
@@ -31,7 +30,7 @@ export function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
           {i18n.language ? (
-             <Image src={currentLanguage.flag} alt={currentLanguage.name} width={24} height={18} className="w-6 h-auto" />
+             <span className="text-xl">{currentLanguage.flag}</span>
           ) : (
             <Globe className="h-[1.2rem] w-[1.2rem]" />
           )}
@@ -41,7 +40,7 @@ export function LanguageSwitcher() {
       <DropdownMenuContent align="end">
         {languages.map(lang => (
           <DropdownMenuItem key={lang.code} onClick={() => changeLanguage(lang.code)}>
-            <Image src={lang.flag} alt={lang.name} width={20} height={15} className="mr-2 h-auto w-5" />
+            <span className="mr-2 text-lg">{lang.flag}</span>
             {lang.name}
           </DropdownMenuItem>
         ))}
