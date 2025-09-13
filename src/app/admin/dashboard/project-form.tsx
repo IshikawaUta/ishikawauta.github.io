@@ -50,10 +50,10 @@ export function ProjectForm({ project }: ProjectFormProps) {
 
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
-    defaultValues: {
+    defaultValues: project ? {
       ...project,
-      technologies: project?.technologies.join(", ") || "",
-    } || {
+      technologies: project.technologies.join(", "),
+    } : {
       title: "",
       description: "",
       technologies: "",
