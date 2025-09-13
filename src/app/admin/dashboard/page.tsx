@@ -4,10 +4,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { projectsData as initialProjects } from "@/lib/data";
-import type { Project } from "@/lib/data";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -34,23 +30,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DeleteDialog } from "./delete-dialog";
 import { useToast } from "@/hooks/use-toast";
+import type { Project } from "@/lib/data";
+import { Button } from "@/components/ui/button";
+import { useProjects } from "./project-context";
 
 
 export default function DashboardPage() {
-  const [projects, setProjects] = useState<Project[]>(initialProjects);
+  const { projects, deleteProject:-delete } = useProjects();
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState<Project | undefined>(undefined);
   const { toast } = useToast();
-  const router = useRouter();
 
-  const handleDeleteProject = (project: Project) => {
+  const handleDeleteClick = (project: Project) => {
     setProjectToDelete(project);
     setIsDeleteDialogOpen(true);
   }
 
   const confirmDelete = () => {
     if (projectToDelete) {
-      setProjects(projects.filter((p) => p.id !== projectToDelete.id));
+      -delete(projectToDelete.id);
       toast({
         title: "Project Deleted",
         description: `"${projectToDelete.title}" has been successfully deleted.`,
@@ -145,7 +143,7 @@ export default function DashboardPage() {
                           <DropdownMenuItem asChild>
                             <Link href={`/admin/dashboard/edit/${project.id}`}>Edit</Link>
                           </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleDeleteProject(project)} className="text-destructive">Delete</DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => handleDeleteClick(project)} className="text-destructive">Delete</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </TableCell>

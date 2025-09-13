@@ -1,18 +1,17 @@
 
 "use client"
 
-import { projectsData } from "@/lib/data";
 import { ProjectForm } from "../../project-form";
 import { notFound } from 'next/navigation';
+import { useProjects } from "../../project-context";
 
 export default function EditProjectPage({ params }: { params: { id: string } }) {
+  const { projects } = useProjects();
   const projectId = parseInt(params.id, 10);
   
-  // In a real app, you would fetch this from a database.
-  const project = projectsData.find((p) => p.id === projectId);
+  const project = projects.find((p) => p.id === projectId);
 
   if (!project) {
-    // If the project doesn't exist, show a 404 page.
     notFound();
   }
 

@@ -27,6 +27,7 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useProjects } from "./project-context";
 
 
 const projectSchema = z.object({
@@ -40,6 +41,11 @@ const projectSchema = z.object({
   liveUrl: z.string().url().optional().or(z.literal('')),
 });
 
+// Create a new type for the form values that includes the transformed 'technologies' as a string array
+type ProjectFormValues = Omit<z.infer<typeof projectSchema>, 'technologies'> & {
+  technologies: string[];
+};
+
 interface ProjectFormProps {
   project?: Project;
 }
@@ -47,6 +53,7 @@ interface ProjectFormProps {
 export function ProjectForm({ project }: ProjectFormProps) {
   const router = useRouter();
   const { toast } = useToast();
+  const { addProject, editProject } = useProjects();
 
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
@@ -65,19 +72,23 @@ export function ProjectForm({ project }: ProjectFormProps) {
   });
 
   const onSubmit = (values: z.infer<typeof projectSchema>) => {
-    // This is where you would typically save to a database.
-    // For now, we'll just show a toast and navigate back.
-    console.log("Saving project:", { ...values, id: project?.id });
+    const projectData: ProjectFormValues = {
+        ...values,
+        technologies: Array.isArray(values.technologies) ? values.technologies : values.technologies.split(',').map(s => s.trim()),
+    };
+
+    if (project) {
+        editProject({ ...project, ...projectData });
+    } else {
+        addProject(projectData);
+    }
 
     toast({
       title: project ? "Project Updated" : "Project Added",
       description: `"${values.title}" has been successfully saved.`,
     });
     
-    // In a real app, you'd invalidate a cache or refetch data here.
-    // For now, we just navigate back to the dashboard.
     router.push("/admin/dashboard");
-    router.refresh(); // Tell Next.js to refetch server components
   };
   
   const isLoading = form.formState.isSubmitting;
@@ -208,3 +219,4 @@ export function ProjectForm({ project }: ProjectFormProps) {
     </Card>
   );
 }
+
