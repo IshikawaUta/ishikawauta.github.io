@@ -36,7 +36,7 @@ import { useProjects } from "./project-context";
 
 
 export default function DashboardPage() {
-  const { projects, deleteProject:-delete } = useProjects();
+  const { projects, deleteProject } = useProjects();
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [projectToDelete, setProjectToDelete] = useState<Project | undefined>(undefined);
   const { toast } = useToast();
@@ -48,7 +48,7 @@ export default function DashboardPage() {
 
   const confirmDelete = () => {
     if (projectToDelete) {
-      -delete(projectToDelete.id);
+      deleteProject(projectToDelete.id);
       toast({
         title: "Project Deleted",
         description: `"${projectToDelete.title}" has been successfully deleted.`,
