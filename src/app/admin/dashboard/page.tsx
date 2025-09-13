@@ -3,6 +3,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { projectsData as initialProjects } from "@/lib/data";
 import type { Project } from "@/lib/data";
 import { Button } from "@/components/ui/button";
@@ -30,28 +32,16 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ProjectDialog } from "./project-dialog";
 import { DeleteDialog } from "./delete-dialog";
 import { useToast } from "@/hooks/use-toast";
 
 
 export default function DashboardPage() {
   const [projects, setProjects] = useState<Project[]>(initialProjects);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
   const [projectToDelete, setProjectToDelete] = useState<Project | undefined>(undefined);
   const { toast } = useToast();
-
-  const handleAddProject = () => {
-    setSelectedProject(undefined);
-    setIsDialogOpen(true);
-  };
-
-  const handleEditProject = (project: Project) => {
-    setSelectedProject(project);
-    setIsDialogOpen(true);
-  };
+  const router = useRouter();
 
   const handleDeleteProject = (project: Project) => {
     setProjectToDelete(project);
@@ -70,26 +60,6 @@ export default function DashboardPage() {
     setProjectToDelete(undefined);
   };
 
-  const handleSaveProject = (project: Project) => {
-    if (selectedProject) {
-      // Edit
-      setProjects(projects.map((p) => (p.id === project.id ? project : p)));
-      toast({
-        title: "Project Updated",
-        description: `"${project.title}" has been successfully updated.`,
-      });
-    } else {
-      // Add
-      const newProject = { ...project, id: projects.length > 0 ? Math.max(...projects.map(p => p.id)) + 1 : 1 };
-      setProjects([newProject, ...projects]);
-      toast({
-        title: "Project Added",
-        description: `"${project.title}" has been successfully added.`,
-      });
-    }
-    setIsDialogOpen(false);
-  };
-
   return (
     <>
       <div className="flex flex-col gap-8">
@@ -100,8 +70,10 @@ export default function DashboardPage() {
               Manage your portfolio projects here.
             </p>
           </div>
-          <Button onClick={handleAddProject}>
-            <PlusCircle className="mr-2 h-4 w-4" /> Add New Project
+          <Button asChild>
+            <Link href="/admin/dashboard/add">
+                <PlusCircle className="mr-2 h-4 w-4" /> Add New Project
+            </Link>
           </Button>
         </div>
 
@@ -170,7 +142,9 @@ export default function DashboardPage() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          <DropdownMenuItem onClick={() => handleEditProject(project)}>Edit</DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link href={`/admin/dashboard/edit/${project.id}`}>Edit</Link>
+                          </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => handleDeleteProject(project)} className="text-destructive">Delete</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
@@ -182,13 +156,6 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
       </div>
-
-      <ProjectDialog
-        isOpen={isDialogOpen}
-        onOpenChange={setIsDialogOpen}
-        project={selectedProject}
-        onSave={handleSaveProject}
-      />
 
       <DeleteDialog
         isOpen={isDeleteDialogOpen}
