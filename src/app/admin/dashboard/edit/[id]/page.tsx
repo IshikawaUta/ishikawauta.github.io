@@ -1,10 +1,9 @@
-
 "use client"
 
 import { ProjectForm } from "../../project-form";
 import { notFound } from 'next/navigation';
 import { useProjects } from "../../project-context";
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import type { Project } from "@/lib/data";
 
 export default function EditProjectPage({ params }: { params: { id: string } }) {
