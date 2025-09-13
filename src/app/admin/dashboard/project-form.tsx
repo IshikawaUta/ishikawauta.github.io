@@ -78,7 +78,8 @@ export function ProjectForm({ project }: ProjectFormProps) {
     };
 
     if (project) {
-        editProject({ ...project, ...projectData });
+        // Ensure the original project ID is preserved
+        editProject({ ...projectData, id: project.id });
     } else {
         addProject(projectData);
     }
@@ -219,4 +220,3 @@ export function ProjectForm({ project }: ProjectFormProps) {
     </Card>
   );
 }
-
