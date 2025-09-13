@@ -9,7 +9,7 @@ import { useMemo } from "react";
 export default function EditProjectPage({ params }: { params: { id: string } }) {
   const { projects } = useProjects();
   
-  const projectId = useMemo(() => parseInt(params.id, 10), [params.id]);
+  const projectId = useMemo(() => parseInt(params.id, 10), [params]);
   
   const project = projects.find((p) => p.id === projectId);
 
@@ -23,3 +23,4 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
     </div>
   );
 }
+
